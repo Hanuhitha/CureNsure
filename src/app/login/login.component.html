@@ -1,0 +1,54 @@
+<div id="login-container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="header-logo">
+    <!-- <img src="https://medeintegra-playground.web.app/assets/logo.png" alt="Welcome"> -->
+  </div>
+  
+  <div class="mat-headline">CureNsure</div>
+  <div class="mat-body-1" id="subtitle">Welcome Log in to continue to Your Account</div>
+<form [formGroup]="loginForm">
+  <mat-form-field appearance="fill">
+    <mat-icon matSuffix>mail_outline</mat-icon>
+    <mat-label>Email Address</mat-label>
+    <input matInput formControlName="email" type="email">
+    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+      <strong>Required</strong>
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+      <strong>Enter Valid Email</strong>
+    </mat-error>
+  </mat-form-field>
+  <!-- fontSet="material-icons-outlined" -->
+
+  <mat-form-field appearance="fill">
+    <mat-icon matSuffix>visibility_off</mat-icon>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password">
+    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+      <strong>Required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button class="submit-button" [disabled]="buttonDisable" (click)="postLoginCredentials()">Continue</button>
+</form>
+
+<div *ngIf="invalid">
+  <mat-label>Invalid username or password</mat-label>
+</div>
+<br>
+<div>
+  <div class="g-signin2"  data-onsuccess="onSignIn" data-longtitle="true"></div>
+  <br>
+  <button mat-raised-button
+              class="long-button"
+              (click)="openRegistration()"
+      >Register as New User</button>
+</div>
+<script>
+ function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+</script>
+</div>

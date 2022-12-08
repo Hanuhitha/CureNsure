@@ -1,0 +1,113 @@
+<mat-progress-bar fxFlex mode="indeterminate"></mat-progress-bar>
+<div fxFlex fxLayoutGap="16px">
+ 
+
+    <div fxLayout="column" fxLayoutGap="16px" >
+      
+     <!-- <app-casesheet-info [patientId]="patient.sub" [casesheetId]="casesheetId"></app-casesheet-info> -->
+  
+        
+        <section fxLayoutAlign="start center" fxLayoutGap="16px">
+          <div class="round-icon"><span class="material-icons">
+            queue
+            </span></div>
+          <div>
+                  <h2 class="mat-headline mb-0">Appointment</h2>
+                  <span class="mat-caption text-light">Summary</span>
+          </div> 
+
+          <div fxFlex fxLayoutAlign="end start">
+            <!-- <button mat-icon-button color="accent" matTooltip="Guidelines"><mat-icon   (click)="guidelines()">info</mat-icon> </button> -->
+         <div> <button mat-flat-button color="accent" class="terms" (click)="guidelines()" matTooltip="Terms and Conditions"> T&C
+            </button></div>
+          </div>
+        </section>
+
+        <div fxLayout="column" fxLayoutGap="8px" class="card">
+          <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge purple-clr" >
+            <mat-icon>airline_seat_individual_suite</mat-icon>
+          </span> Patient Details</div>
+          <section class="ml-46">
+          <div fxLayout.lt-sm="column"   fxLayout="row"  fxLayoutGap="8px" >
+            <div class="mat-body-1 text-light">Name: Hanuhitha Dondapati</div>
+            <!-- <div class="mat-body-1">{{((personalInfo.firstName | titlecase) + " " + (personalInfo.lastName || ""))}}</div> -->
+            <!-- <div class="mat-body-1">{{((patient.firstName || "" ) + " " + (patient.lastName || ""))}}</div> -->
+          </div>
+
+          <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
+            <div class="mat-body-1 text-light">Email Id: hanuhitha.99@gmail.com</div>
+            <!-- <div class="mat-body-1">{{patient.email}}</div> -->
+
+          </div>
+        </section>
+        </div>
+
+        <div fxLayout="column" fxLayoutGap="8px" class="card">
+          <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge blue-clr" >
+            <mat-icon>medical_services</mat-icon>
+          </span> Doctor Details</div>
+        <section class="ml-46">
+        <div fxLayout.lt-sm="column" fxLayoutGap="8px">
+          <!-- <div class="mat-subheading-1">{{doctor.fullName}}</div> -->
+          <!-- <div class="text-light mat-body-1">{{doctor.specialities}} | {{doctor.qualification}}</div> -->
+          </div>
+          <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
+            <div class="text-light mat-body-1">Registration Id : 3f4acd25 </div>
+            <!-- <div class="mat-body-1">{{doctor.registrationId | titlecase}}</div> -->
+            </div>
+          
+          <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
+          <div class="text-light mat-body-1">Gender : Male</div>
+          <!-- <div class="mat-body-1">{{doctor.gender | titlecase}}</div> -->
+          </div>
+          <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
+          <div class="text-light mat-body-1">Short bio : I am a Cardiologist. I have a experience of 10yrs </div>
+          <!-- <div class="mat-body-1" >{{doctor.shortBio}}</div> -->
+        </div>
+      </section>
+      </div>
+
+        <div fxLayout="column" fxLayoutGap="8px" class="card">
+        <div fxLayout="column"  fxLayoutGap="8px" >
+          <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge red-clr" >
+            <mat-icon>watch_later</mat-icon>
+          </span> Scheduled Appointment</div>
+          <!-- <div class="mat-subheading-1 ml-46">{{scheduleAt | epochToCalendar}}</div> -->
+        </div>
+        <div fxLayout="column" class="ml-46" fxLayoutGap="8px">
+          <div class="mat-subheading-1">Your appointment time will be confirmed based on doctor's availability</div>
+        </div>
+        </div>
+        
+        <div fxLayout="column" fxLayoutGap="8px" class="card">
+        <div fxLayout="column"  fxLayoutGap="8px">
+          
+          <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge green-clr" >
+            <mat-icon>videocam</mat-icon>
+          </span> Appoinment Mode</div>
+          <div class="text-light mat-body-1">Video call</div>
+          <!-- <div class="mat-subheading-1 ml-46">{{communicationMode}}</div> -->
+        </div>
+        <!-- <ng-template #defaultMode fxLayoutGap="8px" >
+          <div fxLayoutGap="8px">
+            <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge blue-clr" >
+              <mat-icon>videocam</mat-icon>
+            </span> Appoinment Mode</div>
+            <div class="mat-subheading-1 ml-46">Video</div>
+          </div>
+        </ng-template> -->
+        </div>
+
+
+        <div fxLayout="column" class="personal-info" fxLayoutGap="16px">
+          <!-- <div class="mat-title section-title">Casesheet Details</div> -->
+          <!-- <app-casesheet-info [appointmentDetails]="appointment"></app-casesheet-info> -->
+        </div>
+    
+
+      <button mat-flat-button color="primary" (click)="makePayment()">
+        Make Payment
+      </button>
+    </div>
+
+</div>
