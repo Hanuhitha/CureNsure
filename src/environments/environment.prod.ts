@@ -21,9 +21,9 @@ export const environment = {
     measurementId: 'G-J25C07QW9G'
   },
   medexApps: {
-    consult: 'http://localhost:4200',
-    pharmacy: 'http://localhost:4400',
-    lab: 'http://localhost:4500',
+    consult: 'https://curensure.netlify.app/',
+    pharmacy: 'https://curensure.netlify.app/',
+    lab: 'https://curensure.netlify.app/',
   },
 
   
