@@ -1,0 +1,32 @@
+<div class="home-content">
+    <div class="overview-boxes">
+        <div class="box">
+            <div class="right-side">
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="6px" >
+                    <div class="mat-subheading-1">Are you User or Insurance*</div>
+                <div fxLayoutGap="10px">
+                    <mat-radio-group class="field-align" formControlName="role" fxLayout="row"
+                        fxLayoutAlign="start center" fxLayoutGap="20px">
+                        <mat-radio-button *ngFor="let roleName of roleList" [value]="roleName"
+                            [id]="roleName" (click)="save1(roleName)">
+                            {{roleName}}</mat-radio-button> &nbsp;
+                        <!-- <mat-error
+                            *ngIf="patientRegister.get('role')?.hasError('required') && (patientRegister.get('role')?.dirty || patientRegister.get('role')?.touched)">
+                            <strong>Required</strong>
+                        </mat-error> -->
+                    </mat-radio-group>
+                </div>
+                </div>
+            </div><br>
+            <!-- <div>
+                <button mat-flat-button color="primary">Select</button>
+                </div> -->
+        </div>
+        
+    </div>
+</div>
+<!-- 
+<br> -->
+<!-- <div>
+<button mat-flat-button color="primary" (click)="save()">PAY NOW</button>
+</div> -->

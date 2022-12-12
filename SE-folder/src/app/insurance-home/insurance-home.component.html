@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> CureNSure Dashboard</title>
+    <link rel="stylesheet" href="insurance-home.component.scss">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-grid-alt'></i>
+
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/bookappointment">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Appointment Summary</span>
+                </a>
+            </li>
+            <!-- <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li> -->
+            <li>
+                <a href="/favorites">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favorites</span>
+                </a>
+            </li>
+            <!-- <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+            <li class="log_out">
+                <button mat-raised-button
+                class="long-button"
+                (click)="logout()"
+        >Logout</button>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Insurance Plans</span>
+            </div>
+
+        </nav>
+        <div class="home-content">
+            <h3 class="recommend-card mat-elevation-z1">Health Care Packages</h3>
+            <div class="overview-boxes">
+                
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Packages</div>
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$1000</div>
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 6abd7094 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>BRONZE</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $1000 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $50 (if already using same
+                                                insurance provider) </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests :SpO2, Temp, Weight, Height, Pulse, BMI, Systolic BP, Diastolic</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$2500</div>
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 6abd7094 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>GOLD</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $2500 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $50 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests :SpO2, Temp, Weight, Height, Pulse, BMI, Systolic BP, Diastolic</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$5732</div>
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 6abd7094 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>DIAMOND</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $5732 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $50 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests :SpO2, Temp, Weight, Height, Pulse, BMI, Systolic BP, Diastolic</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <p>Update Plan</p> -->
+                <div fxLayout="row" fxFlex="10000" class="box">
+                    <form>
+                      <b>
+                        <strong>Update IPlan</strong>
+                      </b><br>
+                      <section>
+                        <div fxLayout="row" fxLayoutGap="8px">
+                          <div fxLayout="row" fxLayoutGap="8px">
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Plan ID</mat-label>
+                              <input matInput formControlName="plan_id" type="string">
+                            </mat-form-field>
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Plan Type</mat-label>
+                              <input matInput formControlName="plan_type">
+                            </mat-form-field>
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Monthly Premium</mat-label>
+                              <input matInput formControlName="monthly_premium">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </section>
+                      <div fxLayout="column" fxLayoutGap="32px">
+                        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start end">
+                          <button mat-raised-button matTooltip="Save">Update Plan</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- <p>Update Iplan ends</p> -->
+                  <div fxLayout="row" fxFlex="10000" class="box">
+                    <form>
+                      <b>
+                        <strong>Add IPlan</strong>
+                      </b><br>
+                      <section>
+                        <div fxLayout="row" fxLayoutGap="8px">
+                          <div fxLayout="row" fxLayoutGap="8px">
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Agent ID</mat-label>
+                              <input matInput formControlName="agent_user_id" type="string">
+                            </mat-form-field>
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Plan Type</mat-label>
+                              <input matInput formControlName="plan_type">
+                            </mat-form-field>
+                            <mat-form-field fxFlex="30" appearance="outline">
+                              <mat-label class="mat-body-1">Monthly Premium</mat-label>
+                              <input matInput formControlName="monthly_premium">
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </section>
+                      <div fxLayout="column" fxLayoutGap="32px">
+                        <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start end">
+                          <button mat-raised-button matTooltip="Save">Add Plan</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+        <!-- <div class="home-content">
+            <div class="overview-boxes">
+                <div class="box">
+                    <form>
+                        <strong>Insurance Plan</strong>
+                        <div fxLayout="row" fxLayoutGap="16px">
+                            <div>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Plan Type</mat-label>
+                                    <input matInput type="text" formControlName="plan_type">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Premium($)</mat-label>
+                                    <input matInput type="number" class="example-right-align" formControlName="premium">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <button mat-raised-button color="primary" matTooltip="Save">Publish to market</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- <body> -->
+<!-- <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63901878b0d6371309d2fee0/1gjldv5gh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script> -->
+<!-- </body> -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> CureNSure Dashboard</title>
+    <link rel="stylesheet" href="view-patient-appointments.component.scss">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-grid-alt'></i>
+
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/bookappointment">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Appointment Summary</span>
+                </a>
+            </li>
+            <li>
+                <a href="/view_appointment_patient">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">View Appointment</span>
+                </a>
+            </li>
+            <li>
+                <a href="/favorites">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favorites</span>
+                </a>
+            </li>
+            <!-- <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+            <li class="log_out">
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+            <div>
+                <div>
+
+                    <div fxLayout="column" fxLayoutAlign="start stretch">
+
+                        <!-- <mat-form-field appearance="outline" class="search-packages">
+              <mat-label>Search by Package name or Contents of package</mat-label>
+              <mat-icon matSuffix *ngIf="!primaryDiagnosisSearchCtrl.value">search</mat-icon>
+              <input matInput placeholder="Ex: Speciality/Hospital" [formControl]="primaryDiagnosisSearchCtrl">
+              <mat-autocomplete #search="matAutocomplete" (click)="getListDetails()">
+                <mat-option *ngFor="let result of hospitals" [value]="result" (click)="getvalue(result)">{{result}}</mat-option>
+            </mat-autocomplete>
+          </mat-form-field> -->
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </nav>
+        <br> <br> <br> <br> <br> <br>
+     <div *ngIf="appointment$ | async as viewAppointment"> 
+
+        <table mat-table [dataSource]="viewAppointment" matSort class="mat-elevation-z0">
+            <ng-container matColumnDef="DoctorUserid">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell data-label="Date" *matCellDef="let element">{{element.doc_user_id}}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="Note">
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell data-label="Title" *matCellDef="let element">{{element.note}}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="PatientuserID">
+                <th mat-header-cell *matHeaderCellDef>View</th>
+                <td mat-cell data-label="View" *matCellDef="let element">
+                    {{element.patient_user_id}}
+                   
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Time">
+                <th mat-header-cell *matHeaderCellDef>View</th>
+                <td mat-cell data-label="View" *matCellDef="let element">
+                     {{element.time}}
+                    
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Type">
+                <th mat-header-cell *matHeaderCellDef>Delete</th>
+                <td mat-cell data-label="Delete" *matCellDef="let element"> 
+                    {{element.type}}
+                    
+</td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    </section>
+</body>
+
+</html>

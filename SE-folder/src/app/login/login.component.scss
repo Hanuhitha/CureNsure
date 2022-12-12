@@ -1,0 +1,51 @@
+#main-container{
+    height: 100vh;
+  }
+  
+  #home-description-container{
+    background: #ebeef4;
+  }
+  
+  #wallpaper-container{
+    padding: 64px;
+    width: 70vw;
+    height: 100vh;
+  }
+  
+  #wallpaper{
+    max-width:100%;
+    max-height:100%;
+  }
+  
+  #login-container{
+    width: 400px;
+    margin: auto;
+    padding: 52px;
+    overflow: hidden;
+    color: #2d333a;
+    background-color: #fff;
+    box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    border-radius: 5px;
+  }
+  
+  .header-logo{
+    margin: 24px;
+  }
+  
+  #subtitle{
+    padding: 8px 24px 16px 24px;
+    text-align: center;
+  }
+  
+  mat-form-field{
+    width: 100%;
+    padding: 0 2px;
+  }
+  
+  .submit-button{
+    width: 100%;
+    padding: 8px 32px;
+    background: #00363a;
+    color: #ffffff;
+  }
+  

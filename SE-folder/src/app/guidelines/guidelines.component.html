@@ -1,0 +1,125 @@
+<div fxLayout="row" fxLayoutAlign="start start">
+<h1 mat-dialog-title>Terms &amp; Conditions </h1>
+
+   
+    <div fxFlex fxLayoutAlign="end start">
+        <div class="mat-caption" fxLayoutAlign="end start">Version: 5.3.2</div>
+         
+      </div>
+  </div>
+
+
+<div mat-dialog-content>
+<!-- 
+    <section fxLayoutAlign="center center" class="text-primary" fxLayoutGap="2">
+       Attention to all patients : <strong class="text-primary" > No-show appointments are subject to No Refund policy. </strong>
+    </section><br> -->
+    <p fxLayoutAlign="center center">Attention to all patients : <strong class="text-primary" >No-show appointments are subject to No Refund policy. </strong>
+    </p><br>
+
+
+    <section fxLayoutAlign="space-between start"  fxLayoutGap="2">
+
+        
+        <p >  Review : <strong class="text-primary"> Patients may schedule a review/follow up, on doctor’s advice or on necessity within 7 
+        calendar days from the date of previous paid consultation with same/available doctor. 
+        This is for continuation of care of the same health condition. 
+        However, it will not be considered a review/follow up, 
+         if there are new symptoms that are not in the spectrum of the same health condition.</strong></p>
+    </section><br>
+    <div fxLayoutGap="2%" fxLayout.lt-md="column">
+        
+        <section fxLayout="column" fxFlex="65" fxFlex.lt-md="0" fxLayoutGap="8px">
+            <aside fxLayout="column" fxLayoutGap="16px">
+                <h3 class="mat-subheading-2">Reschedule/Cancellation Policy</h3>
+
+              
+                <!-- <mat-divider></mat-divider> -->
+                <div><span class="round-chip"><span class="material-icons text-middle"> videocam </span> Video &amp;
+                        <span class="material-icons text-middle"> phone </span> Phone</span></div>
+                <p><strong class="text-primary">Specialist:</strong></p>
+                <ul class="mt-0">
+                    <li class="mb-2">2(Two) hours before virtual consultation, the customer may request for
+                        Reschedule/cancellation through
+                        the Apollo Telehealth Services website/App. And in this scenario no cancellation charges will
+                        apply.</li>
+                    <li>If the customer disagrees on the rescheduling then request for cancellation is confirmed. And
+                        the request
+                        will be accepted through mail.</li>
+                </ul>
+             
+            </aside>
+            <aside fxLayout="column" fxLayoutGap="16px">
+                <p><strong class="text-primary">General Physician:</strong></p>
+                <ul class="mt-0">
+                    <li class="mb-2">2(Two) hours before virtual consultation, the customer may request for
+                        Reschedule/cancellation through the
+                        Apollo Telehealth Services website/App. And in this scenario no cancellation charges will apply.
+                    </li>
+
+                    <li>If the customer disagrees on the rescheduling then request for cancellation is confirmed. And
+                        the request
+                        will be accepted through mail.</li>
+                </ul>
+
+            </aside>
+            <aside fxLayout="column" fxLayoutGap="16px">
+                <div><span class="round-chip"><span class="material-icons text-middle"> email </span> Email</span></div>
+                <p><strong class="text-primary">Both Specialist & GP:</strong></p>
+                <ul class="mt-0">
+                    <li class="mb-2">2(Two) hours after the appointment booking time of virtual consultation. The
+                        customer may request for
+                        cancellation through the Apollo Telehealth Services website/App. And in this scenario no
+                        cancellation
+                        charges will apply.</li>
+
+                    <li>Rescheduling is not applicable for email consultations</li>
+                </ul>
+
+            </aside>
+
+        </section>
+
+
+
+
+        <section fxLayout="column" fxFlex="34" fxFlex.lt-md="0" fxLayoutGap="8px">
+            <aside fxLayout="column" fxLayoutGap="16px">
+                <h3 class="mat-subheading-2">Cancellation Refund Policy</h3>
+                <!-- <mat-divider></mat-divider> -->
+                <div><span class="round-chip"><span class="material-icons text-middle"> videocam </span> Video &amp;
+                        <span class="material-icons text-middle"> phone </span> Phone</span></div>
+                <p>For below Scenarios <strong>100% refund</strong> will be made to the respective
+                    payment instrument used by the customer.</p>
+                <p><strong class="text-primary">Both Specialist & GP:</strong></p>
+                <ul class="mt-0">
+                    <li class="mb-2">Patient cancels/reschedules prior to confirmed appointment time</li>
+                    <li>Apollo Telehealth Services initiates cancellation / rescheduling prior to service delivery.</li>
+                </ul>
+            </aside>
+
+
+            <aside fxLayout="column" fxLayoutGap="16px">
+                <div><span class="round-chip"><span class="material-icons text-middle"> email </span> Email</span></div>
+                <p><strong class="text-primary">Both Specialist & GP:</strong></p>
+                <ul class="mt-0">
+                    <li class="mb-2">Patient cancels/reschedules prior to confirmed appointment time</li>
+                    <li>Apollo Telehealth Services initiates cancellation / rescheduling prior to service delivery.</li>
+                </ul>
+            </aside>
+        </section>
+    </div>
+
+    <section fxLayoutAlign="space-between start" class="text-primary" fxLayoutGap="2">
+        Note: Apollo Telehealth Services will make all possible arrangements to execute virtual consultation at the
+        scheduled time. In case we are unable to do so, we will request for a mutually agreeable time to execute the
+        consultation. Thanks
+        
+    </section>
+
+   
+
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button color="primary" (click)="openDialog()" cdkFocusInitial>Ok</button>
+</div>

@@ -1,0 +1,17 @@
+<!-- <p>payment works!</p>
+
+<p> add selected app details and amount </p> -->
+<div class="home-content">
+    <div class="overview-boxes">
+        <div class="box">
+            <div class="right-side">
+                <div class="text">Insured By - <b>{{payment?.agent_user_id}}</b></div><br>
+                <div class="text">Plan Type - <b>{{payment?.plan_type}}</b></div><br>
+                <div class="text">Monthly Premium - <b>{{payment?.monthly_premium}}</b></div><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button mat-flat-button color="primary" (click)="save(payment?.plan_type , payment?.monthly_premium)">CONFIRM & PAY NOW</button>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!-- <body> -->
+<!-- <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63901878b0d6371309d2fee0/1gjldv5gh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script> -->
+<!-- </body> -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> CureNSure Dashboard</title>
+  <link rel="stylesheet" href="profile.component.scss">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/home" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/bookappointment">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Appointment Summary</span>
+        </a>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li> -->
+      <li>
+        <a href="/favorites">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Favorites</span>
+        </a>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+      <li class="log_out">
+        <button mat-raised-button
+                    class="long-button"
+                    (click)="logout()"
+            >Logout</button>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Profile</span>
+      </div>
+    </nav>
+    <div class="home-content" *ngIf="details.role_id === 2">
+      <p> DOCTOR</p>
+      <div class="overview-boxes">
+
+        <div class="box">
+
+          <div class="right-side">
+            <div class="box-topic"><b>Name</b> - {{details?.user_first_name}} {{details?.user_last_name}}</div>
+            <br>
+
+            <div class="text"><b>Hospital Name</b> - {{details?.hospital_name}}</div>
+
+            <br>
+            <div class="text"><b>Speciality</b> - {{details?.speciality}}</div>
+
+            <br>
+            <div class="text"><b>Gender</b> - {{details?.user_gender}}</div><br>
+            <div class="text"><b>Supports Covid</b> - {{details?.supports_covid}}</div><br>
+            <div class="text"><b>Email</b> - {{details?.user_email}}</div><br>
+            <div class="text"><b>Address</b> - {{details?.user_address}}</div><br>
+            <div class="text"><b>ZipCode</b> - {{details?.user_zipcode}}</div><br>
+
+
+            <!-- <br><div class="text"><b>Age</b> - {{details?.user_age}}</div>  -->
+
+            <br>
+            <!-- <div>
+              <button mat-raised-button color="primary" matTooltip="Save" (click)="openRegistration()">Update
+                Profile</button>
+            </div> -->
+            <br>
+          </div>
+
+        </div>
+
+        <!-- REGISTER PAGE FOR UPDATING THE PROFILE -->
+        <!-- <div class="register-rightPanel" fxLayout="row" fxFlex="10000">
+
+          <form [formGroup]="patientRegister" fxFlex fxLayout="column" fxLayoutGap="0px">
+            <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="16px">
+              <div fxLayout="column">
+                <div class="mat-title">New Patient Registration</div>
+              </div>
+
+              <div class="mat-body-1">Already a member? <a [routerLink]="'/login'">Go back</a></div>
+
+            </div>
+            <mat-divider></mat-divider>
+            <br />
+            <strong class="head1">GENERAL DETAILS</strong>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+
+              <section fxFlex="50" fxLayoutGap="6px">
+                <mat-form-field appearance="fill" class="titles-name drop" fxFlex="20">
+                  <mat-label>Title</mat-label>
+                  <mat-select formControlName="title" required>
+                    <mat-option *ngFor="let title of titles" [value]="title">
+                      {{title}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="patientRegister.get('title')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                  <mat-label>First Name</mat-label>
+                  <input matInput pattern="[a-zA-Z ]*" formControlName="firstName" required>
+                  <mat-error *ngIf="patientRegister.get('firstName')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('firstName')?.hasError('pattern')">
+                    <strong>First Name Only Contains Alphabets</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput pattern="[a-zA-Z ]*" formControlName="lastName" required>
+                  <mat-error *ngIf="patientRegister.get('lastName')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('lastName')?.hasError('pattern')">
+                    <strong>Last Name Only Contains Alphabets</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="47">
+                  <mat-label class="mat-body-1">Date Of Birth</mat-label>
+                  <input readonly matInput [matDatepicker]="picker" placeholder="MM-DD-YYYY"
+                    formControlName="dateOfBirth" [min]="minDob" [max]='maxDob' required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+                </mat-form-field>
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="6px">
+                  <div class="mat-subheading-1">Gender*</div>
+                  <div fxLayoutGap="10px">
+                    <mat-radio-group class="field-align" formControlName="gender" fxLayout="row"
+                      fxLayoutAlign="start center" fxLayoutGap="20px">
+
+                      <mat-radio-button *ngFor="let genderName of genderList" [value]="genderName" [id]="genderName">
+                        {{genderName}}</mat-radio-button> &nbsp;
+                      <mat-error
+                        *ngIf="patientRegister.get('gender')?.hasError('required') && (patientRegister.get('gender')?.dirty || patientRegister.get('gender')?.touched)">
+                        <strong>Required</strong>
+                      </mat-error>
+                    </mat-radio-group>
+                  </div>
+                </div>
+
+              </section>
+            </div>
+            <mat-divider></mat-divider>
+            <br />
+            <strong class="head1">CONTACT DETAILS</strong>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+              <section fxFlex="50" fxLayoutGap="16px">
+
+                <mat-form-field appearance="outline" class="relationsip drop" fxFlex="47">
+                  <mat-label>Relationship</mat-label>
+                  <mat-select formControlName="relationship">
+                    <mat-option *ngFor="let relation of relations" [value]="relation">
+                      {{relation}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="47">
+                  <mat-label>Relationship Name</mat-label>
+                  <input matInput pattern="[a-zA-Z ]*" formControlName="motherName" required>
+                  <mat-error *ngIf="patientRegister.get('motherName')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('motherName')?.hasError('pattern')">
+                    <strong>Last Name Only Contains Alphabets</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="47">
+                  <mat-label>Email*</mat-label>
+                  <input matInput type="email" formControlName="email">
+                  <mat-error *ngIf="patientRegister.get('email')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('email')?.hasError('email')">
+                    <strong>Enter valid Email</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="47">
+                  <mat-label class="mat-body-1">10 digit Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" formControlName="mobileNumber"
+                    (keypress)="numberOnly($event)" maxlength="10" required>
+                  <mat-error *ngIf="patientRegister.get('mobileNumber')?.hasError('min')">
+                    <strong>Enter valid Phone Number</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('mobileNumber')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="47">
+                  <mat-label class="mat-body-1">Alternative Mobile Number</mat-label>
+                  <input matInput formControlName="altMobileNumber" (keypress)="numberOnly($event)" maxlength="10"
+                    required>
+                  <mat-error *ngIf="patientRegister.get('altMobileNumber')?.hasError('min')">
+                    <strong>Enter valid Phone Number</strong>
+                  </mat-error>
+                  <mat-error *ngIf="patientRegister.get('altMobileNumber')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </section>
+            </div>
+            <mat-divider></mat-divider>
+            <br />
+            <strong class="head1">BASIC VITALS</strong>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+              <section fxFlex="50" fxLayoutGap="16px">
+
+                <mat-form-field fxFlex="47" appearance="outline">
+                  <mat-label>Age</mat-label>
+                  <input matInput formControlName="age" maxLength="2" (keyup)="calculateDob()" required>
+                  <mat-error *ngIf="patientRegister.get('age')?.hasError('required')">
+                    <strong>Required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field fxFlex="47" appearance="outline">
+                  <mat-label>Height (in cm)</mat-label>
+                  <input matInput formControlName="height" max="999" maxlength="3">
+                  <mat-error *ngIf="patientRegister.get('height')?.hasError('pattern')">
+                    <strong>ENTER VALID HEIGHT</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field fxFlex="47" appearance="outline">
+                  <mat-label>Weight (in Kg)</mat-label>
+                  <input matInput formControlName="weight" min="0" max="999" maxlength="3">
+                  <mat-error *ngIf="patientRegister.get('weight')?.hasError('pattern')">
+                    <strong>ENTER VALID WEIGHT</strong>
+                  </mat-error>
+                </mat-form-field>
+              </section>
+
+            </div>
+
+            <mat-divider></mat-divider>
+            <br>
+            <strong class="head1">PRESENT ADDRESS DETAILS</strong>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+
+              <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
+                <section fxFlex="50" fxLayoutGap="16px">
+                  <mat-form-field appearance="outline" fxFlex="47">
+                    <mat-label class="mat-body-1">Address</mat-label>
+                    <input matInput placeholder="City" formControlName="address" type="string">
+                    <mat-error *ngIf="patientRegister.get('address')?.hasError('required')">
+                      <strong>Required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" fxFlex="47">
+                    <mat-label class="mat-body-1">City</mat-label>
+                    <input matInput formControlName="city">
+                  </mat-form-field> -->
+        <!-- <mt-form-field appearance="outline" fxFlex="47"> -->
+        <!-- <mat-label>Location</mat-label>
+                      <mat-select formControlName="location" required>
+                          <mat-option *ngFor="let loc of locations" [value]="loc.title">
+                              {{loc.title}}
+                          </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="patientRegister.get('location')?.hasError('required')">
+                          <strong>REQUIRED</strong>
+                      </mat-error>
+                  </mat-form-field> -->
+
+
+        <!-- <mat-form-field appearance="outline" fxFlex="47">
+                    <mat-label class="mat-body-1">Zipcode</mat-label>
+                    <input matInput placeholder="Zipcode" formControlName="zipcode" maxLength="6"
+                      (keypress)="numberOnly($event)">
+                    <mat-error *ngIf="patientRegister.get('zipcode')?.errors">
+                      <strong>ZipCode must contain 6 digits</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </section>
+
+              </div>
+            
+            </div>
+
+
+            <br>
+            <strong class="head1">PERMANENT ADDRESS DETAILS</strong>
+            <br>
+            <p>SAME AS PRESENT ADDRESS - <mat-checkbox formControlName="primaryCheck"
+                (change)="samePermanentAddress($event)" checked></mat-checkbox></p>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+
+              <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
+                <section fxFlex="50" fxLayoutGap="16px">
+                  <div *ngIf="!patientRegister.get('primaryCheck')?.value">
+                    <div fxLayout="column" fxLayoutGap="16px" fxLayoutAlign="space-between center">
+                      <section fxFlex="50" fxLayoutGap="16px">
+                        <mat-form-field appearance="outline">
+                          <mat-label class="mat-body-1">Address</mat-label>
+                          <input matInput placeholder="City" formControlName="addressPermanent" type="string">
+                         
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                          <mat-label class="mat-body-1">City</mat-label>
+                          <input matInput formControlName="cityPermanent">
+                        </mat-form-field>
+                      </section>
+                    </div>
+
+                  </div>
+                </section>
+
+              </div>
+            </div>
+            <div fxLayout="column" fxLayoutGap="32px">
+              
+
+              <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start end" *ngIf="!isLoading">
+                <button mat-raised-button color="primary" matTooltip="Save" (click)="openDialog()">Update</button>
+
+              </div>
+
+            </div>
+          </form>
+        </div> -->
+
+        <!-- REGISTER PAGE FOR UPDATING THE PROFILE -->
+      </div>
+    </div>
+
+
+
+    <div class="home-content" *ngIf="details.role_id === 3">
+      <div class="overview-boxes">
+
+        <div class="box">
+
+          <div class="right-side">
+            <div class="box-topic"><b>Name</b> - {{details?.user_first_name}} {{details?.user_last_name}}</div>
+            <br>
+            <!-- <div class="text"><b>Title</b> - {{details?.user_title}}</div>
+            <br> -->
+            <div class="text"><b>Gender</b> - {{details?.user_gender}}</div><br>
+            <div class="text"><b>Email</b> - {{details?.user_email}}</div><br>
+            <div class="text"><b>Address</b> - {{details?.user_city}}, {{details?.user_address}}</div><br>
+            <div class="text"><b>ZipCode</b> - {{details?.user_zipcode}}</div><br>
+            <br>
+            <div>
+              <button mat-raised-button color="primary" matTooltip="Save" (click)="openInsRegistration()">Update
+                Profile</button>
+            </div>
+            <br>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="home-content" *ngIf="details.role_id === 1">
+      <div class="overview-boxes">
+        <div class="box">
+
+          <div class="right-side">
+            <div class="box-topic"><b>Name</b> - {{details?.user_title}} {{details?.user_first_name}} {{details?.user_last_name}}</div>
+            <br>
+
+            <!-- <div class="text"><b>Hospital Name</b> - {{details?.hospital_name}}</div> -->
+
+            <br>
+            <div class="text"><b>Age</b> - {{details?.user_age}}</div>
+
+            <br>
+            <div class="text"><b>Gender</b> - {{details?.user_gender}}</div><br>
+            <div class="text"><b>Height</b> - {{details?.user_height}}</div><br>
+            <div class="text"><b>Email</b> - {{details?.user_email}}</div><br>
+            <div class="text"><b>Address</b> - {{details?.user_city}}, {{details?.user_address}}</div><br>
+            <div class="text"><b>ZipCode</b> - {{details?.user_zipcode}}</div><br>
+
+
+            <!-- <br><div class="text"><b>Age</b> - {{details?.user_age}}</div>  -->
+
+            <br>
+            <div>
+              <button mat-raised-button color="primary" matTooltip="Save" (click)="openRegistration()">Update
+                Profile</button>
+            </div>
+            <br>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </section>
+</body>
+
+</html>

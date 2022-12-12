@@ -1,0 +1,41 @@
+// @import "../../../theme/colors";
+
+.register-leftPanel{
+    padding: 2px;
+   background: #0A2558;
+    // height: 200vh;
+    // width: 00vh;
+    color: #ffffff;
+    overflow-y: scroll;
+  }
+  .registration-container{
+    // background: $shade-background-dark;
+    background: rgb(128, 128, 128);
+  }
+  
+  .register-rightPanel{
+    padding: 32px;
+    background: white;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .field-width {
+    width: 70vw;
+  }
+  
+  #logo{
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 50%;
+  }
+  
+  .banner {
+    height: 30vh;
+  }
+  
+  .captured-image{
+    border-radius: 8px;
+    height: 120px;
+  }
+  

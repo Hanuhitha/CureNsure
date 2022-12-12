@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> CureNSure Dashboard</title>
+    <link rel="stylesheet" href="fav-plans.component.scss">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-grid-alt'></i>
+
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/bookappointment">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Appointment Summary</span>
+                </a>
+            </li>
+            <!-- <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li> -->
+        <li>
+            <a href="/view_appointment_patient">
+              <i class='bx bx-message' ></i>
+              <span class="links_name">View Appointment</span>
+            </a>
+          </li>
+            <li>
+                <a href="/favorites">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favorites</span>
+                </a>
+            </li>
+            <!-- <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+            <li class="log_out">
+                <button mat-raised-button
+                    class="long-button"
+                    (click)="logout()"
+            >Logout</button>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Favorites</span>
+            </div>
+
+        </nav>
+        <div class="home-content">
+            <h3 class="recommend-card mat-elevation-z1"> Recommended Health Care Packages </h3>
+            <div class="overview-boxes">
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                        <!-- <div fxLayout="row" fxLayoutGap="5px">
+                            <div class="mat-caption">Includes</div>
+                            <div class="mat-caption include-tests" fxLayout="row" fxLayoutAlign="center center"><strong>{{package.tests.length}} test(s)</strong></div>
+                        </div> -->
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$900</div>
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false" (click)="addToCart(package)"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 581nf94ad </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>BRONZE</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $75 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $10 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                        <!-- <div fxLayout="row" fxLayoutGap="5px">
+                            <div class="mat-caption">Includes</div>
+                            <div class="mat-caption include-tests" fxLayout="row" fxLayoutAlign="center center"><strong>{{package.tests.length}} test(s)</strong></div>
+                        </div> -->
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$1200</div>
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false" (click)="addToCart(package)"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 481nfaf2 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>BRONZE</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $100 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $10 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests :Temp, Weight, Height, Pulse</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                        <!-- <div fxLayout="row" fxLayoutGap="5px">
+                            <div class="mat-caption">Includes</div>
+                            <div class="mat-caption include-tests" fxLayout="row" fxLayoutAlign="center center"><strong>{{package.tests.length}} test(s)</strong></div>
+                        </div> -->
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$2400</div>
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false" (click)="addToCart(package)"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 6128bsae </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>GOLD</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $200 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $50 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests : SpO2, Temp, Weight, Height, BMI, Pulse</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                        <!-- <div fxLayout="row" fxLayoutGap="5px">
+                            <div class="mat-caption">Includes</div>
+                            <div class="mat-caption include-tests" fxLayout="row" fxLayoutAlign="center center"><strong>{{package.tests.length}} test(s)</strong></div>
+                        </div> -->
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$1800</div>
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false" (click)="addToCart(package)"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : zfa434na2 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>GOLD</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $150 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $50 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests : SpO2, Temp, Weight, Height, Pulse</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-list">
+                    <div>
+                        <div class="package-card mat-elevation-z1">
+                            <div fxLayout="column">
+                                <div class="package-name mat-elevation-z1" fxLayout="column"
+                                    fxLayoutAlign="space-between none" fxFlex="15">
+                                    <div fxLayout="column">
+                                        <div class="mat-body-2">Healthcare Package</div>
+                                        <!-- <div fxLayout="row" fxLayoutGap="5px">
+                            <div class="mat-caption">Includes</div>
+                            <div class="mat-caption include-tests" fxLayout="row" fxLayoutAlign="center center"><strong>{{package.tests.length}} test(s)</strong></div>
+                        </div> -->
+                                    </div>
+
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <div class="mat-title">$3000</div>
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false" (click)="addToCart(package)"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
+                                        <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->
+                                    </div>
+                                </div>
+                                <div class="packages-list-items-container">
+                                    <div fxLayout="column" fxLayoutGap="8px">
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Insured By : 9f9145fsh </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Plan Type : <strong>DIAMOND</strong></p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1"> Monthly Premium : $250 </p>
+                                        </div>
+                                        <div fxLayout="row" fxLayoutGap="16px">
+                                            <p class="mat-body-1">Additional Coverage : $100 (if already using same
+                                                insurance
+                                                provider) </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutGap="7px" class="common-tests" fxFlex="15">
+                                    <div class="mat-caption"><strong>Also includes Monthy check ups</strong></div>
+                                    <div class="mat-caption">Basic tests : SpO2, Temp, Weight, Height, BMI, Pulse,
+                                        Systolic BP,
+                                        Diastolic BP</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

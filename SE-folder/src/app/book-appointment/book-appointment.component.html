@@ -1,0 +1,81 @@
+<!-- <p>book-appointment works!</p> -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> CureNSure Dashboard</title>
+    <link rel="stylesheet" href="book-appointment.component.scss">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-grid-alt'></i>
+
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/bookappointment">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Appointment Summary</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+            </li> -->
+            <li>
+                <a href="/favorites">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Favorites</span>
+                </a>
+            </li>
+            <!-- <li>
+            <a href="#">
+              <i class='bx bx-cog' ></i>
+              <span class="links_name">Setting</span>
+            </a>
+          </li> -->
+            <li class="log_out">
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Appointment Summary</span>
+            </div>
+        </nav>
+
+        <div class="home-content">
+            <br>
+            <app-summary></app-summary>
+            <!-- </div> -->
+        </div>
+    </section>
+</body>
+
+</html>
