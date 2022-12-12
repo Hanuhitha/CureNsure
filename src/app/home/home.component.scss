@@ -120,6 +120,24 @@ nav .sidebar-button i{
   width: 100%;
   margin: 0 20px;
 }
+
+.patient-avatar{
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.box-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  background: rgb(182, 205, 213);
+  padding: 15px 14px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
 nav .search-box input{
   height: 100%;
   width: 100%;
@@ -436,4 +454,33 @@ nav .profile-details i{
     left: 60px;
     width: calc(100% - 60px);
   }
+}
+.search-packages {
+  width: 40vw;
+}
+
+
+
+.time-interval{
+  margin: 8px 0;
+}
+.size{
+  width: 25%;
+  height: 25%;
+}
+// .time-interval{
+//   margin: 4px 0;
+// }
+.clicked {
+  background-color: grey;
+}
+
+
+.terms{
+  padding: 2px;
+ 
+  border-radius: 20%;
+  width: 30px;
+  height: 40px;
+  cursor:pointer;
 }

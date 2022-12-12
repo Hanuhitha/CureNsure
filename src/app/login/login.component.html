@@ -1,6 +1,22 @@
+
+<div fxLayout="column" fxLayoutAlign="center center" class="register-leftPanel" fxFlex="1000">
+       
+  <div fxLayout="row">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <img src="/assets/img/home.jpeg" alt="CureNsure">
+  <!-- <div class="mat-body-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div> -->
+</div>
+<div fxLayout="column" fxFlex="10000">
+
+
 <div id="login-container" fxLayout="column" fxLayoutAlign="center center">
   <div class="header-logo">
-    <!-- <img src="https://medeintegra-playground.web.app/assets/logo.png" alt="Welcome"> -->
+    
   </div>
   
   <div class="mat-headline">CureNsure</div>
@@ -39,7 +55,7 @@
   <br>
   <button mat-raised-button
               class="long-button"
-              (click)="openRegistration()"
+              (click)="dialogRole()"
       >Register as New User</button>
 </div>
 <script>
@@ -51,4 +67,5 @@
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 </script>
+</div>
 </div>

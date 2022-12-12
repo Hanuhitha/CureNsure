@@ -21,16 +21,19 @@ export const environment = {
       measurementId: 'G-J25C07QW9G'
     },
     medexApps: {
-      consult: 'https://curensure.netlify.app/',
-      pharmacy: 'https://curensure.netlify.app/',
-      lab: 'https://curensure.netlify.app/',
+      consult: 'http://localhost:4200',
+      pharmacy: 'http://localhost:4400',
+      lab: 'http://localhost:4500',
     },
 
     loginApi: {
-      url:"http://localhost:8080",
+      url:"https://flaskfiremeservice-ziptz2ouwq-ue.a.run.app",
+      // url: "http://localhost:8080",
       list: "/list",  
       login: "/login",
-      filterByDoctor:"/filterDoc"
+      filterByDoctor:"/filterDoc",
+      insurance:"/insurance",
+      appointment:"/appointment"
 
     }
   };

@@ -1,0 +1,98 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 6px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.home-section{
+  position: relative;
+  background: grey;
+  min-height: 100vh;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.5s ease;
+}
+.home-section .home-content{
+  position: relative;
+  padding-top: 104px;
+}
+.home-content .overview-boxes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding:  30px;
+  margin-bottom: 26px;
+}
+.overview-boxes .box{
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  width: calc(100% / 1 - 10px);
+  background: #fff;
+  padding: 15px 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.overview-boxes .box-topic{
+  font-size: 20px;
+  font-weight: 500;
+}
+// .home-content .box .number{
+//   display: inline-block;
+//   font-size: 30px;
+//   margin-top: -6px;
+//   font-weight: 500;
+// }
+.home-content .box .indicator{
+  display: flex;
+  align-items: center;
+}
+.home-content .box .indicator i{
+  height: 20px;
+  width: 20px;
+  background: #8FDACB;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.box .indicator i.down{
+  background: #e87d88;
+}
+.home-content .box .indicator .text{
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+mat-accordion{
+  background-color: #e87d88;
+}
+
+button{
+  color: #fff;
+  text-align: center;
+  background-color: #e87d88;
+}
+
+.right-side{
+  line-height: 1.6;
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.head1{
+  text-align: left;
+}

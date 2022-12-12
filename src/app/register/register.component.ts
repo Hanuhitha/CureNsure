@@ -9,8 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 // import { ConsentFormComponent } from './consent-form/consent-form.component';
 // import * as moment from 'moment';
 import { Observable, Subject } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 import * as moment from 'moment';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-register',
@@ -32,8 +33,12 @@ export class RegisterComponent implements OnInit {
   districts: any[] = [];
   municipalities: any[] = [];
   locations: any[] = [];
+  register: any;
   //   abs: FormDetails[] = [];
   CDATE = new Date();
+  customerRangeList: string[] = ['bronze','silver','gold'];
+
+  role : any;
 
   IDPROOF = 'ADDRESS PROOF NUMBER';
   patientRegister = new FormGroup({
@@ -76,8 +81,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router,
       private activatedRoute: ActivatedRoute,
-      public dialog: MatDialog,
-      private _snackbar: MatSnackBar) {
+      private appService: AppService,
+      // private meta: Meta,
+      private snackbar: MatSnackBar,
+      public dialog: MatDialog,) {
       this.patientRegister.get('age');
   }
 
@@ -87,12 +94,27 @@ export class RegisterComponent implements OnInit {
       this.patientRegister.valueChanges.subscribe((res) => {
         console.log("response from ", res)
 
-        const  register ={
+        this.register ={
             request : "signUp",
             user_first_name : this.patientRegister.get('firstName')?.value,
-            user_last_name : this.patientRegister.get('firstName')?.value,
+            user_last_name : this.patientRegister.get('lastName')?.value,
+            user_mobile:this.patientRegister.get('mobileNumber')?.value,
+            user_email: this.patientRegister.get('email')?.value,
+            user_title: this.patientRegister.get('title')?.value,
+            user_gender: this.patientRegister.get('gender')?.value,
+            user_age: this.patientRegister.get('age')?.value,
+            user_height: this.patientRegister.get('height')?.value,
+            user_weight: this.patientRegister.get('weight')?.value,
+            user_address:this.patientRegister.get('address')?.value,
+            user_city: this.patientRegister.get('city')?.value,
+            user_zipcode: this.patientRegister.get('zipcode')?.value,
+            login_username: this.patientRegister.get('email')?.value,
+            login_password: this.patientRegister.get('firstName')?.value,
+            role_id: 1
+
         }
-   
+      
+    
  
       });
        }
@@ -114,7 +136,35 @@ export class RegisterComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.router.navigate(["home"], {});
+
+    console.log("register details", this.register);
+    
+    
+    this.appService.postSignUpCredentials(this.register).pipe(
+      take(1),
+      tap(res => {console.log("Tap " + res);}),
+      map((res) => {
+        console.log('res', res);
+        // this.id = res?.id;
+        // this.status = res?.Login_Success;
+        return res;
+      }))
+    .subscribe(res => {
+     
+      if (res.success){
+        console.log("login successful", res);
+        this.router.navigate(["home"], {});
+      } else {
+        console.log("login unsuccessful", );
+    
+
+      }
+    });
+
+
+
+
+    
   }
       
 
