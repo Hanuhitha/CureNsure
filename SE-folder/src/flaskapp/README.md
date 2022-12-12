@@ -1,2 +1,0 @@
-# CureNsure
-Team 26

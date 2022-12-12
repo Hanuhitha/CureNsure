@@ -74,7 +74,7 @@
 }
 .home-section{
   position: relative;
-  background: #f5f5f5;
+  background: #fff;
   min-height: 100vh;
   width: calc(100% - 240px);
   left: 240px;
@@ -181,16 +181,15 @@ nav .profile-details i{
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 30px;
+  padding: 30px;
   margin-bottom: 26px;
 }
 .overview-boxes .box{
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: calc(100% / 3 - 10px);
+  width: calc(100% / 1 - 10px);
   background: #fff;
-  padding: 15px 14px;
+  padding: 15px 15px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
@@ -224,6 +223,20 @@ nav .profile-details i{
 }
 .home-content .box .indicator .text{
   font-size: 10px;
+  font-style: italic;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 2px;
+}
+
+mat-accordion{
+  background-color: #e87d88;
+}
+button{
+  color: #fff;
+  background-color: #e87d88;
 }
 .home-content .box .cart{
   display: inline-block;
@@ -437,3 +450,7 @@ nav .profile-details i{
     width: calc(100% - 60px);
   }
 }
+.search-packages {
+  width: 40vw;
+}
+

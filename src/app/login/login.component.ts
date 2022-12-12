@@ -1,9 +1,12 @@
 import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, take, tap } from 'rxjs/operators';
 import { AppService } from '../app.service';
+import { RoleDialogComponent } from '../role-dialog/role-dialog.component';
 
 
 export class login {
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
     response : any;
     id: any;
     status: any;
-
+    role: any;
     invalid: boolean = false;
     guser: any;
     signIn = 'onSignIn'
@@ -45,6 +48,8 @@ export class LoginComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private appService: AppService,
         // private meta: Meta,
+        private snackbar: MatSnackBar,
+        public dialog: MatDialog,
         ngZone : NgZone
     ) {
       //   window['onSignIn'] = user => ngZone.run(
@@ -111,6 +116,7 @@ export class LoginComponent implements OnInit {
           return res;
         }))
       .subscribe(res => {
+        
         this.response = res;
         console.log("this.response", this.response, this.response.Login_Success)
         this.id = this.response.id;
@@ -149,17 +155,45 @@ export class LoginComponent implements OnInit {
     }
 
     
+    dialogRole(){
+      // console.log("package", packageDetails);
+    const dialogRef = this.dialog.open(RoleDialogComponent, {
+      width: "850px",
+      // data: {
+      //   selectedApp: packageDetails
+      // }
+  });
+  dialogRef.afterClosed().subscribe(async result => {
+    console.log("Result after dialog close ", result);
+    if (result) {
+      
+      this.snackbar.open('Payment is successfull', '', { duration: 3000 });
+     
+      this.openRegistration(result)
+    }
+});
 
+    
+      // if()
+      
+    }
     continueToHome() {
         this.isLoading = true;
         this.router.navigate(["home"], {});
         return false;
     }
-    openRegistration(){
+    openRegistration(id: any){
+      if(id === 1){
       this.isLoading = true;
       this.router.navigate(["register"], {});
-      return false;
+    }
+    if(id === 3){
+      this.isLoading = true;
+      this.router.navigate(["register_insurance"], {});
     }
 
+      return false;
+    }
+    // this.appointmentId
 
 }
