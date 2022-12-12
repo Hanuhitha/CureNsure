@@ -28,10 +28,13 @@ export const environment = {
 
   
   loginApi: {
-    url:"http://localhost:8080",
+    // url:"http://localhost:8080",
+    url:"https://flaskfiremeservice-ziptz2ouwq-ue.a.run.app",
     list: "/list",  
     login: "/login",
-    filterByDoctor:"/filterDoc"
+    filterByDoctor:"/filterDoc",
+    insurance:"/insurance",
+    appointment:"/appointment"
 
   }
 };

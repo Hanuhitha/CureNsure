@@ -91,7 +91,10 @@ export class InsuranceHomeComponent implements OnInit {
        this.buttonDisable2=false;
       }
     })
-
+    this.insurancedata = {
+      request: "view_agent_plans", 
+      agent_user_id: "6abd7094"
+    }
     this.appService.postInsurance(this.insurancedata).pipe(
       tap(res => {console.log("Tap " + res);}),
       map((res) => {
