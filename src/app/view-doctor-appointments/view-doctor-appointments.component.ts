@@ -10,9 +10,10 @@ import { AppService } from '../app.service';
   styleUrls: ['./view-doctor-appointments.component.scss']
 })
 export class ViewDoctorAppointmentsComponent implements OnInit {
-  displayedColumns: string[] = ['DoctorUserid', 'Note', 'PatientuserID', 'Time', 'Type'];
+  displayedColumns: string[] = ['DoctorUserid', 'Note', 'Time', 'Type'];
   appointment$: Observable<any[]> | undefined;
-
+  id: any;
+  role: any;
    viewDoctorAppointment: any[] =[];
    dataSource= new MatTableDataSource();
   
@@ -23,10 +24,15 @@ export class ViewDoctorAppointmentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
     this.viewDoctorAppointments()
   }
 
-  
+  logout(){
+    localStorage.clear();
+    this.router.navigate(["login"], {});
+  }
   viewDoctorAppointments(){
     const viewDoctor:any={
       request: "view_doctor_appointments", 

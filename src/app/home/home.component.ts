@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -29,10 +29,6 @@ export class HomeComponent implements OnInit {
   secondaryDiagnosisSearchCtrl = new FormControl();
   // selectedSecondaryDiagnosis: SnomedData[] = [];
   insurancedata: any;
-  id = "080b730f"
-  userID ="201b94f8"
-  insu_id ="19f3b7a2"
-  agent_id='bc9d6690'
   role: any
   temp:any
   showcurrent: any;
@@ -45,6 +41,7 @@ export class HomeComponent implements OnInit {
   speciality : string[] =[];
   filterType= new FormControl('');
   searchResults: any;
+  id: any;
   title = 'instant-search';
   public searchInput!: string;
   public lists = ['appointments','time','Tb test','covid',]
@@ -75,7 +72,7 @@ export class HomeComponent implements OnInit {
   data: any;
 
   viewUpcomingPatientAppointment:any[]=[];
-  displayedColumns: string[] = ['DoctorUserid', 'Note', 'PatientuserID', 'Time', 'Type'];
+  displayedColumns: string[] = ['DoctorUserid', 'Note', 'Time', 'Type'];
   upcomingappointment$: Observable<any[]> | undefined;
   dataSource= new MatTableDataSource();
 
@@ -91,6 +88,21 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog,
 ) {
 }
+
+ques = new FormGroup({
+  q1 : new FormControl("", [Validators.required]),
+  q2: new FormControl("", [Validators.required]),
+  q3: new FormControl("", [Validators.required]),
+  q4: new FormControl("", [Validators.required]),
+  q5: new FormControl("", [Validators.required]),
+})
+buttonDisable: any;
+q1: any;
+q2: any;
+q3: any;
+q4: any;
+q5: any;
+
 filterValue: any;
   filter: Filter[] = [
   {value: 'Name'},
@@ -100,6 +112,8 @@ filterValue: any;
 ];
 
   ngOnInit(): void {
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
     this.showcurrent = false;
     // if(this.userID){
     //   this.role = "user"
@@ -146,6 +160,23 @@ filterValue: any;
     },
     error => console.error(error)
   );
+
+  this.ques.valueChanges.subscribe((value)=>{
+        
+    if(this.ques.invalid){
+     this.buttonDisable=true
+    }else{
+     this.q1 = this.ques.get('q1')?.value;
+     this.q2 = this.ques.get('q2')?.value;
+     this.q3 = this.ques.get('q3')?.value;
+     this.q4 = this.ques.get('q4')?.value;
+     this.q5 = this.ques.get('q5')?.value;
+     //this.buttonDisable=false;
+    }
+    if(this.q1 && this.q2 && this.q3 || this.q2 && this.q3 && this.q4 || this.q3 && this.q4 && this.q5 || this.q5 && this.q1 && this.q2){
+      this.buttonDisable=false;
+    }
+   })
 
   }
 

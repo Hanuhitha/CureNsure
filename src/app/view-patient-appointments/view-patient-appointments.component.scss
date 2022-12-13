@@ -486,6 +486,29 @@ nav .profile-details i{
 }
 
 
-table {
-    width: 100%;
-  }
+table{
+  width: 100;
+}
+.mat-column-Note{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-DoctorUserid{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-Type{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-Time{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-PatientuserID{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+strong{
+  text-align: center;
+}

@@ -24,10 +24,10 @@ export class DoctorComponent implements OnInit {
   secondaryDiagnosisSearchCtrl = new FormControl();
   // selectedSecondaryDiagnosis: SnomedData[] = [];
 
-  id = "080b730f"
-  userID ="201b94f8"
-  insu_id ="19f3b7a2"
-  agent_id='bc9d6690'
+  // id = "080b730f"
+  // userID ="201b94f8"
+  // insu_id ="19f3b7a2"
+  // agent_id='bc9d6690'
   role: any
   patients = [];
   recentPatients = [];
@@ -64,14 +64,14 @@ filterValue: any;
   {value: 'Hospital'},
 ];
 slot = new FormGroup({
-  doctor_user_id : new FormControl("", [Validators.required]),
+  // doctor_user_id : new FormControl("", [Validators.required]),
   time: new FormControl("", [Validators.required]),
   note: new FormControl("", [Validators.required]),
   date: new FormControl("", [Validators.required]),
   })
 
 createSlot : any;
-
+id: any;
 buttonDisable: any;
 doctor_user_id: any;
 time: any;
@@ -79,7 +79,7 @@ note: any;
 date: any;
 viewDoctorAppointment:any[]=[];
 viewUpcomingDoctorAppointment:any[]=[];
-displayedColumns: string[] = ['DoctorUserid', 'Note', 'PatientuserID', 'Time', 'Type'];
+displayedColumns: string[] = ['DoctorUserid', 'Note', 'Time', 'Type'];
 upcomingappointment$: Observable<any[]> | undefined;
 doctorappointment$: Observable<any[]> | undefined;
 
@@ -96,6 +96,8 @@ dataSource= new MatTableDataSource();
     //   this.role = "insurance"
     // }
 
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
 
     this.viewDoctorAppointments()
 
@@ -113,7 +115,7 @@ dataSource= new MatTableDataSource();
 
        this.buttonDisable=true
       }else{
-       this.doctor_user_id = this.slot.get('doctor_user_id')?.value;
+      //  this.doctor_user_id = this.slot.get('doctor_user_id')?.value;
        this.time = this.slot.get('time')?.value;
        this.note = this.slot.get('note')?.value;
        this.date = this.slot.get('date')?.value;

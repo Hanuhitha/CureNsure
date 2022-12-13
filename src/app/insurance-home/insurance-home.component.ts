@@ -28,6 +28,8 @@ export class InsuranceHomeComponent implements OnInit {
   all: boolean= false;
   package_type : string[] =[ "all"]
   foundItem : boolean | undefined;
+  id: any;
+  role: any;
   constructor(
     private appService: AppService,
     private snackbar: MatSnackBar,
@@ -57,9 +59,8 @@ export class InsuranceHomeComponent implements OnInit {
   monthly_premium2: any;
 
   ngOnInit(): void {
-    const url = this.router.url?.split('/');
-    this.medexUid = url.find((item) => item.startsWith('medex'));
-    console.log('medexUID', this.medexUid);
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
     this.insurancedata = {
       request: "view_agent_plans", 
       agent_user_id: "6abd7094"

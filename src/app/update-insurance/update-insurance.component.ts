@@ -32,6 +32,7 @@ export class UpdateInsuranceComponent implements OnInit {
   customerRangeList: string[] = ['bronze','silver','gold'];
 
   role : any;
+  id: any;
 
   IDPROOF = 'ADDRESS PROOF NUMBER';
   patientRegister = new FormGroup({
@@ -81,6 +82,8 @@ export class UpdateInsuranceComponent implements OnInit {
 
   public ngOnInit(): void {
 
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
       console.log('oninit reg comp');
       this.patientRegister.valueChanges.subscribe((res) => {
         console.log("response from ", res)

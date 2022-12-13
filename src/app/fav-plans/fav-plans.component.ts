@@ -8,7 +8,8 @@ import { AppService } from '../app.service';
   styleUrls: ['./fav-plans.component.scss']
 })
 export class FavPlansComponent implements OnInit {
-
+  id: any;
+  role: any;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -16,6 +17,8 @@ export class FavPlansComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.id = localStorage.getItem("user_id");
+    this.role = localStorage.getItem("role_id");
   }
   logout(){
     localStorage.clear();

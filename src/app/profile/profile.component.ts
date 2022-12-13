@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(res => {
         // this.details = res;
         console.log("hello",this.details)
-        this.role = localStorage.getItem("role_id");
+        // this.role = localStorage.getItem("role_id");
        
       });
   }

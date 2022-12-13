@@ -23,9 +23,10 @@ export interface ViewApp {
 
 
 export class ViewPatientAppointmentsComponent implements OnInit {
-  displayedColumns: string[] = ['DoctorUserid', 'Note', 'PatientuserID', 'Time', 'Type'];
+  displayedColumns: string[] = ['DoctorUserid', 'Note', 'Time', 'Type'];
   appointment$: Observable<any[]> | undefined;
-
+  id: any;
+  role: any;
    viewPatientAppointment: any[] =[];
   //  dataSource = ELEMENT_DATA
 
@@ -40,7 +41,15 @@ export class ViewPatientAppointmentsComponent implements OnInit {
     
 
 ngOnInit(): void {
+
+  this.id = localStorage.getItem("user_id");
+  this.role = localStorage.getItem("role_id");
   this.viewPatientAppointments();
+}
+
+logout(){
+  localStorage.clear();
+  this.router.navigate(["login"], {});
 }
 viewPatientAppointments(){
   const viewPatient : any = {

@@ -53,21 +53,27 @@
           </div>
         </div>
       </section>
-      <section fxFlex="30">
+      <section fxFlex="31">
         <div class="home-content">
           <div class="overview-boxes">
 
             <div class="box">
               <div class="right-side">
-                <br><br><br><br><br>
+                <br><br>
+                <div class="bom-topic"><b>Recurring Amount</b> </div>
+                <br>
+                <div class="bom-topic"> {{recurring_amount}}
+                  <!-- <mat-icon>amount</mat-icon> $500 -->
+                </div>
+                <br><br>
+                <!-- <br><br><br><br><br> -->
                 <div class="bom-topic"><b>Total Amount</b> </div>
                 <br>
-                <div class="bom-topic"> {{premiaum}}
+                <div class="bom-topic"> {{total_amount}}
                   <!-- <mat-icon>amount</mat-icon> $500 -->
                 </div>
 
                 <br><br><br><br><br>
-
               </div>
 
             </div>
@@ -80,12 +86,12 @@
   <div>
     <mat-form-field appearance="outline" class="search-packages">
       <mat-label>Search by Package plan type</mat-label>
-      <mat-icon matSuffix *ngIf="!packageSearchFormControl.value">search</mat-icon>
+      <!-- <mat-icon matSuffix >search</mat-icon> -->
       <input matInput placeholder="Ex: Vitals package" [formControl]="packageSearchFormControl"
         [matAutocomplete]="search">
       <button mat-button *ngIf="packageSearchFormControl.value" matSuffix mat-icon-button aria-label="Clear"
         (click)="packageSearchFormControl.setValue('')">
-        <mat-icon>close</mat-icon>
+        <!-- <mat-icon>close</mat-icon> -->
       </button>
     </mat-form-field>
     <mat-autocomplete #search="matAutocomplete">
@@ -110,7 +116,8 @@
               <div class="mat-title">{{package.monthly_premium}}</div>
               <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"
                 (click)="addToCart(package)">
-                <mat-icon>add_shopping_cart</mat-icon>&nbsp;Pay Now
+                <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+                &nbsp;Pay Now
               </button>
               <!-- <button mat-stroked-button [disabled]="showloader === true" *ngIf="packageExistsInCart(package) === false"><mat-icon>add_shopping_cart</mat-icon>&nbsp;Add to cart</button> -->
               <!-- <button mat-stroked-button *ngIf="packageExistsInCart(package) === true"><mat-icon>done</mat-icon>&nbsp;Added to cart</button> -->

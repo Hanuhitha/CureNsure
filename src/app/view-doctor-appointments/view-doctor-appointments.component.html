@@ -11,63 +11,119 @@
 </head>
 
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">CureNsure</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="/home" class="active">
-          <i class='bx bx-grid-alt'></i>
-
-          <span class="links_name">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="/profile">
-          <i class='bx bx-box'></i>
-          <span class="links_name">Profile</span>
-        </a>
-      </li>
-      <li>
-        <a href="/bookappointment">
-          <i class='bx bx-user'></i>
-          <span class="links_name">Appointment Summary</span>
-        </a>
-      </li>
-      <!-- <li>
-        <a href="#">
-          <i class='bx bx-message'></i>
-          <span class="links_name">Messages</span>
-        </a>
-      </li> -->
-      <li>
-          <a href="/view_appointment_doctor">
+    <div class="sidebar" *ngIf="role === '1'">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/home" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="/bookappointment">
+              <i class='bx bx-user'></i>
+              <span class="links_name">Appointment Summary</span>
+            </a>
+          </li>
+          <li>
+            <a href="/view_appointment_patient">
+                <i class='bx bx-message'></i>
+                <span class="links_name">View Appointment</span>
+            </a>
+        </li>
+          <li>
+            <a href="/favorites">
+              <i class='bx bx-heart'></i>
+              <span class="links_name">Favorites</span>
+            </a>
+          </li>
+          <!-- <li>
+              <a href="#">
+                <i class='bx bx-cog' ></i>
+                <span class="links_name">Setting</span>
+              </a>
+            </li> -->
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    
+    
+      <div class="sidebar" *ngIf="role === '2'">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/doctor" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="/view_appointment_doctor">
               <i class='bx bx-message'></i>
               <span class="links_name">View Appointments</span>
-          </a>
-      </li>
-      <li>
-        <a href="/favorites">
-          <i class='bx bx-heart'></i>
-          <span class="links_name">Favorites</span>
-        </a>
-      </li>
-      <!-- <li>
-            <a href="#">
-              <i class='bx bx-cog' ></i>
-              <span class="links_name">Setting</span>
             </a>
-          </li> -->
-      <li class="log_out">
-        <a href="#">
-          <i class='bx bx-log-out'></i>
-          <span class="links_name">Log out</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+          </li>
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    
+      <div class="sidebar" *ngIf="role === '3'">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/insurance_home" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="/favorites">
+              <i class='bx bx-heart'></i>
+              <span class="links_name">Favorites</span>
+            </a>
+          </li>
+         
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
@@ -75,50 +131,50 @@
         <span class="dashboard">Dashboard</span>
       </div>
 
-    </nav>  
-    <div *ngIf="appointment$ | async as viewAppointment"> 
+    </nav>
+    <div class="home-content">
+      <div class="overview-boxes">
+        <!-- <div class="box"><b>Upcoming patient appointments</b></div> <br><br><br> -->
+        <div *ngIf="appointment$ | async as viewAppointment" class="box" fxFlex="100">
+          <div class="right-side">
+            <div class="box-topic" fxLayoutAlign="center center"><strong> View Doctor Appointments</strong></div>
+            <br>
+            <table mat-table [dataSource]="viewAppointment" matSort class="mat-elevation-z0">
+              <ng-container matColumnDef="DoctorUserid" fxFlex="40">
+                <th mat-header-cell *matHeaderCellDef>Appointment ID</th>
+                <td mat-cell data-label="doc_user_id" *matCellDef="let element">{{element.doc_user_id}}</td>
+              </ng-container>
+              <ng-container matColumnDef="Note" fxFlex="40">
+                <th mat-header-cell *matHeaderCellDef>Note</th>
+                <td mat-cell data-label="note" *matCellDef="let element">{{element.note}}</td>
+              </ng-container>
+              <!-- <ng-container matColumnDef="PatientuserID" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Patient ID</th>
+            <td mat-cell data-label="patient_user_id" *matCellDef="let element">
+              {{element.patient_user_id}}
+            </td>
+          </ng-container> -->
+              <ng-container matColumnDef="Time" fxFlex="40">
+                <th mat-header-cell *matHeaderCellDef>Time am/pm</th>
+                <td mat-cell data-label="time" *matCellDef="let element">
+                  {{element.time}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Type" fxFlex="40">
+                <th mat-header-cell *matHeaderCellDef>Type</th>
+                <td mat-cell data-label="type" *matCellDef="let element">
+                  {{element.type}}
+                </td>
+              </ng-container>
 
-      <table mat-table [dataSource]="viewAppointment" matSort class="mat-elevation-z0">
-  
- 
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
 
-          <ng-container matColumnDef="DoctorUserid">
-              <th mat-header-cell *matHeaderCellDef>Date</th>
-              <td mat-cell data-label="Date" *matCellDef="let element">{{element.doc_user_id}}</td>
-          </ng-container>
-  
-          <ng-container matColumnDef="Note">
-              <th mat-header-cell *matHeaderCellDef>Title</th>
-              <td mat-cell data-label="Title" *matCellDef="let element">{{element.note}}</td>
-          </ng-container>
-  
-          <ng-container matColumnDef="PatientuserID">
-              <th mat-header-cell *matHeaderCellDef>View</th>
-              <td mat-cell data-label="View" *matCellDef="let element">
-                  {{element.patient_user_id}}
-                 
-              </td>
-          </ng-container>
-          <ng-container matColumnDef="Time">
-              <th mat-header-cell *matHeaderCellDef>View</th>
-              <td mat-cell data-label="View" *matCellDef="let element">
-                   {{element.time}}
-                  
-              </td>
-          </ng-container>
-          <ng-container matColumnDef="Type">
-              <th mat-header-cell *matHeaderCellDef>Delete</th>
-              <td mat-cell data-label="Delete" *matCellDef="let element"> 
-                  {{element.type}}                 
-          </td>
-          </ng-container>
-          
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-  </div>
-
-    </section>
-  </body>
 </html>
-    

@@ -11,57 +11,119 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="sidebar" *ngIf="role === '1'">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus'></i>
-            <span class="logo_name">CureNsure</span>
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="/home" class="active">
-                    <i class='bx bx-grid-alt'></i>
-
-                    <span class="links_name">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="/profile">
-                    <i class='bx bx-box'></i>
-                    <span class="links_name">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="/bookappointment">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">Appointment Summary</span>
-                </a>
-            </li>
-            <!-- <li>
-          <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li> -->
-            <li>
-                <a href="/favorites">
-                    <i class='bx bx-heart'></i>
-                    <span class="links_name">Favorites</span>
-                </a>
-            </li>
-            <!-- <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li> -->
-            <li class="log_out">
-                <button mat-raised-button
-                class="long-button"
-                (click)="logout()"
-        >Logout</button>
-            </li>
+          <li>
+            <a href="/home" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="/bookappointment">
+              <i class='bx bx-user'></i>
+              <span class="links_name">Appointment Summary</span>
+            </a>
+          </li>
+          <li>
+            <a href="/view_appointment_patient">
+                <i class='bx bx-message'></i>
+                <span class="links_name">View Appointment</span>
+            </a>
+        </li>
+          <li>
+            <a href="/favorites">
+              <i class='bx bx-heart'></i>
+              <span class="links_name">Favorites</span>
+            </a>
+          </li>
+          <!-- <li>
+              <a href="#">
+                <i class='bx bx-cog' ></i>
+                <span class="links_name">Setting</span>
+              </a>
+            </li> -->
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
         </ul>
-    </div>
+      </div>
+    
+    
+      <div class="sidebar" *ngIf="role === '2'">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/doctor" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="/view_appointment_doctor">
+              <i class='bx bx-message'></i>
+              <span class="links_name">View Appointments</span>
+            </a>
+          </li>
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    
+      <div class="sidebar" *ngIf="role === '3'">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CureNsure</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/insurance_home" class="active">
+              <i class='bx bx-grid-alt'></i>
+    
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/profile">
+              <i class='bx bx-box'></i>
+              <span class="links_name">Profile</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="/favorites">
+              <i class='bx bx-heart'></i>
+              <span class="links_name">Favorites</span>
+            </a>
+          </li>
+         
+          <li class="log_out">
+            <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
     <section class="home-section">
         <nav>
             <div class="sidebar-button">
@@ -193,13 +255,13 @@
                     </div>
                 </div>
 
-
+                <mat-divider></mat-divider>
                 <!-- <p>Update Plan</p> -->
                 <div fxLayout="row" fxFlex="10000" class="box">
                     <form>
                       <b>
                         <strong>Update IPlan</strong>
-                      </b><br>
+                      </b><br><br>
                       <section>
                         <div fxLayout="row" fxLayoutGap="8px">
                           <div fxLayout="row" fxLayoutGap="8px">
@@ -220,17 +282,19 @@
                       </section>
                       <div fxLayout="column" fxLayoutGap="32px">
                         <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start end">
-                          <button mat-raised-button matTooltip="Save">Update Plan</button>
+                          <button mat-raised-button color="primary" matTooltip="Save">Update Plan</button>
                         </div>
                       </div>
                     </form>
                   </div>
+                  <mat-divider></mat-divider>
+                  <br><br>
                   <!-- <p>Update Iplan ends</p> -->
                   <div fxLayout="row" fxFlex="10000" class="box">
                     <form>
                       <b>
                         <strong>Add IPlan</strong>
-                      </b><br>
+                      </b><br><br>
                       <section>
                         <div fxLayout="row" fxLayoutGap="8px">
                           <div fxLayout="row" fxLayoutGap="8px">
@@ -251,7 +315,7 @@
                       </section>
                       <div fxLayout="column" fxLayoutGap="32px">
                         <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start end">
-                          <button mat-raised-button matTooltip="Save">Add Plan</button>
+                          <button mat-raised-button color="primary" matTooltip="Save">Add Plan</button>
                         </div>
                       </div>
                     </form>

@@ -11,7 +11,57 @@
 </head>
 
 <body>
-  <div class="sidebar">
+  <div class="sidebar" *ngIf="role === '1'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/home" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/bookappointment">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Appointment Summary</span>
+        </a>
+      </li>
+      <li>
+        <a href="/view_appointment_patient">
+          <i class='bx bx-message'></i>
+          <span class="links_name">View Appointment</span>
+        </a>
+      </li>
+      <li>
+        <a href="/favorites">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Favorites</span>
+        </a>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li> -->
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="sidebar" *ngIf="role === '2'">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
       <span class="logo_name">CureNsure</span>
@@ -31,34 +81,52 @@
         </a>
       </li>
       <li>
-        <a href="/bookappointment">
-          <i class='bx bx-user'></i>
-          <span class="links_name">Appointment Summary</span>
-        </a>
-      </li>
-      <li>
         <a href="/view_appointment_doctor">
           <i class='bx bx-message'></i>
           <span class="links_name">View Appointments</span>
         </a>
       </li>
       <li>
+        <a href="/view_appointment_doctor">
+          <i class='bx bx-message'></i>
+          <span class="links_name">View Slots</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="role === '3'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/insurance_home" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+
+      <li>
         <a href="/favorites">
           <i class='bx bx-heart'></i>
           <span class="links_name">Favorites</span>
         </a>
       </li>
-      <!-- <li>
-            <a href="#">
-              <i class='bx bx-cog' ></i>
-              <span class="links_name">Setting</span>
-            </a>
-          </li> -->
+
       <li class="log_out">
-        <button mat-raised-button
-                    class="long-button"
-                    (click)="logout()"
-            >Logout</button>
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>
@@ -72,7 +140,7 @@
     </nav>
     <div class="home-content">
       <div class="overview-boxes">
-        <div fxLayout="row" fxFlex="10000" class="box">
+        <div fxLayout="column" fxFlex="100" class="box">
           <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
@@ -87,8 +155,23 @@
               <div class="text"><b>Email</b> - {{details?.user_email}}</div><br>
               <div class="text"><b>Gender</b> - {{details?.user_gender}}</div><br>
             </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <b>Covid Beds</b>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="text"><b>Number of beds available</b> - {{details?.supports_covid}} 
+              </div><br>
+             
+            </mat-expansion-panel>
+
+
           </mat-accordion>
         </div>
+
+        
+
         <!-- <mat-divider></mat-divider>
     <div class="box">
       <div class="right-side">
@@ -156,6 +239,48 @@
             </mat-expansion-panel>
           </mat-accordion>
         </div> -->
+        <!-- <br><br> -->
+        <div fxLayout="column" fxFlex="10000">
+          <!-- <strong>Upcoming Appointments</strong> --><br>
+          <div *ngIf="upcomingappointment$ | async as viewUpcomingAppointment" class="box" fxFlex="100">
+            <div class="right-side">
+              <div class="box-topic" fxLayoutAlign="center center"><strong> Upcoming Doctor appointments</strong></div>
+              <br>
+              <table mat-table [dataSource]="viewUpcomingAppointment" matSort class="mat-elevation-z0">
+                <ng-container matColumnDef="DoctorUserid" fxFlex="15">
+                  <th mat-header-cell *matHeaderCellDef>Patient</th>
+                  <td mat-cell data-label="doc_user_id" *matCellDef="let element">{{element.patient_user_id}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Note" fxFlex="15">
+                  <th mat-header-cell *matHeaderCellDef>Note</th>
+                  <td mat-cell data-label="note" *matCellDef="let element">{{element.note}}</td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="PatientuserID" fxFlex="15">
+                <th mat-header-cell *matHeaderCellDef>Patient Id</th>
+                <td mat-cell data-label="patient_user_id" *matCellDef="let element">
+                    {{element.patient_user_id}}
+                </td>
+            </ng-container> -->
+                <ng-container matColumnDef="Time" fxFlex="15">
+                  <th mat-header-cell *matHeaderCellDef>Time</th>
+                  <td mat-cell data-label="time" *matCellDef="let element">
+                    {{element.time}}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="Type" fxFlex="15">
+                  <th mat-header-cell *matHeaderCellDef>Type</th>
+                  <td mat-cell data-label="type" *matCellDef="let element">
+                    {{element.type}}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br><br>
         <mat-divider></mat-divider>
         <div fxLayout="row" fxFlex="10000" class="box">
           <form>
@@ -166,10 +291,10 @@
               <div fxLayout="row" fxLayoutGap="8px">
                 <div fxLayout="row" fxLayoutGap="8px">
                   <form [formGroup]="slot">
-                    <mat-form-field fxFlex="40" appearance="outline">
+                    <!-- <mat-form-field fxFlex="40" appearance="outline">
                       <mat-label class="mat-body-1">Doctor ID</mat-label>
                       <input matInput formControlName="doctor_user_id" type="string">
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field fxFlex="40" appearance="outline">
                       <mat-label class="mat-body-1">Choose a date</mat-label>
@@ -199,42 +324,13 @@
             </div>
           </form>
         </div>
-      <div *ngIf="upcomingappointment$ | async as viewUpcomingAppointment"> 
-        <table mat-table [dataSource]="viewUpcomingAppointment" matSort class="mat-elevation-z0">
-            <ng-container matColumnDef="DoctorUserid">
-                <th mat-header-cell *matHeaderCellDef>Date</th>
-                <td mat-cell data-label="Date" *matCellDef="let element">{{element.doc_user_id}}</td>
-            </ng-container>
-            <ng-container matColumnDef="Note">
-                <th mat-header-cell *matHeaderCellDef>Title</th>
-                <td mat-cell data-label="Title" *matCellDef="let element">{{element.note}}</td>
-            </ng-container>
-            <ng-container matColumnDef="PatientuserID">
-                <th mat-header-cell *matHeaderCellDef>View</th>
-                <td mat-cell data-label="View" *matCellDef="let element">
-                    {{element.patient_user_id}}
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="Time">
-                <th mat-header-cell *matHeaderCellDef>View</th>
-                <td mat-cell data-label="View" *matCellDef="let element">
-                    {{element.time}}
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="Type">
-                <th mat-header-cell *matHeaderCellDef>Delete</th>
-                <td mat-cell data-label="Delete" *matCellDef="let element"> 
-                    {{element.type}}                 
-            </td>
-            </ng-container>
-            
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
+        <mat-divider></mat-divider>
+        <br><br>
+        
       </div>
     </div>
   </section>
+  
 </body>
 
 </html>

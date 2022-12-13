@@ -475,7 +475,9 @@ nav .profile-details i{
   background-color: grey;
 }
 
-
+table {
+  width: 100%;
+}
 .terms{
   padding: 2px;
  
@@ -483,4 +485,32 @@ nav .profile-details i{
   width: 30px;
   height: 40px;
   cursor:pointer;
+}
+table{
+  width: 100%;
+  
+}
+
+.mat-column-Note{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-DoctorUserid{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-Type{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-Time{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+.mat-column-PatientuserID{
+  border: 1px solid currentColor;
+  text-align: center;
+}
+strong{
+  text-align: center;
 }

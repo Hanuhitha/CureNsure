@@ -10,14 +10,14 @@
 </head>
 
 <body>
-  <div class="sidebar">
+  <div class="sidebar" *ngIf="role === '1'">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
       <span class="logo_name">CureNsure</span>
     </div>
     <ul class="nav-links">
       <li>
-        <a href="/update_patient" class="active">
+        <a href="/home" class="active">
           <i class='bx bx-grid-alt'></i>
 
           <span class="links_name">Dashboard</span>
@@ -35,12 +35,12 @@
           <span class="links_name">Appointment Summary</span>
         </a>
       </li>
-      <!-- <li>
-          <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li> -->
+      <li>
+        <a href="/view_appointment_patient">
+            <i class='bx bx-message'></i>
+            <span class="links_name">View Appointment</span>
+        </a>
+    </li>
       <li>
         <a href="/favorites">
           <i class='bx bx-heart'></i>
@@ -54,10 +54,72 @@
           </a>
         </li> -->
       <li class="log_out">
-        <button mat-raised-button
-                    class="long-button"
-                    (click)="logout()"
-            >Logout</button>
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="sidebar" *ngIf="role === '2'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/doctor" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/view_appointment_doctor">
+          <i class='bx bx-message'></i>
+          <span class="links_name">View Appointments</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="role === '3'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/insurance_home" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/favorites">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Favorites</span>
+        </a>
+      </li>
+     
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>

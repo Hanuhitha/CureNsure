@@ -116,13 +116,14 @@ export class LoginComponent implements OnInit {
           return res;
         }))
       .subscribe(res => {
-        
+
         this.response = res;
         console.log("this.response", this.response, this.response.Login_Success)
         this.id = this.response.id;
         this.status = this.response.Login_Success;
         if (this.id){
           console.log("login successful");
+
           this.continueToHome();
         } else {
           console.log("login unsuccessful",this.status );
@@ -167,19 +168,31 @@ export class LoginComponent implements OnInit {
     console.log("Result after dialog close ", result);
     if (result) {
       
-      this.snackbar.open('Payment is successfull', '', { duration: 3000 });
+      //this.snackbar.open('', '', { duration: 3000 });
      
       this.openRegistration(result)
     }
 });
 
     
-      // if()
-      
     }
     continueToHome() {
-        this.isLoading = true;
+      this.isLoading = true;
+
+      this.id = localStorage.getItem("user_id");
+      this.role = localStorage.getItem("role_id");
+      console.log("role in login",this.role )
+       
+      if(this.role === '1'){
         this.router.navigate(["home"], {});
+      }
+      else if(this.role === '2'){
+        this.router.navigate(["doctor"], {});
+      }
+      else if(this.role === '3'){
+        this.router.navigate(["insurance_home"], {});
+      }
+       
         return false;
     }
     openRegistration(id: any){

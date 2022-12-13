@@ -33,8 +33,12 @@ export class UserComponent implements OnInit {
   foundItem : boolean | undefined;
   details: any;
   id : any;
+  plan_Id: any;
+  recurring_amount: any = "$1000";
+  total_amount : any = "$1032352";
   premiaum: any = "$1000";
-
+  recuring: boolean =  false;
+  setData: any;
   plan_type = "GOLD"
 
   role: any;
@@ -46,7 +50,8 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+    this.recuring= true;
+    this.recTotal();
     this.id = localStorage.getItem("user_id");
     this.role = localStorage.getItem("role_id");
 
@@ -179,7 +184,9 @@ export class UserComponent implements OnInit {
       this.snackbar.open('Payment is successfull', '', { duration: 3000 });
       this.plan_type = result.type
       this.premiaum = result.premium
+
         this.set();
+        this.recTotal();
 
       
     }
@@ -210,19 +217,39 @@ export class UserComponent implements OnInit {
       map((res) => {
         console.log('res insurance list ', res);
 
-        for(let i in res){
-          
-          this.package_type.push(res[i].plan_type)
-        }
+        this.plan_Id = res.plan_id
         return res;
       }),
     ).subscribe((res) => {
 
-      this.packages = res
-      console.log("packages" ,this.packages)
+      
+    })
+   
+  }
+  recTotal(){
+   this.setData = {
+      request: "get_total_and_recurring_bills", 
+      plan_id: "c02cbae8",
+      patient_user_id: this.id
+    }
+
+    // recurring_amount: any;
+    // total_amount : any;
+
+    this.appService.postInsurance(this.setData).pipe(
+      tap(res => {console.log("Tap " + res);}),
+      map((res) => {
+        console.log('set data result ', res);
+
+          this.recurring_amount = res.Recurring_Amount;
+          this.total_amount = res.Total_Billed_Amount
+        return res;
+      }),
+    ).subscribe((res) => {
+          this.recuring= true;
+        console.log("res in amount", this.recurring_amount, this.total_amount)
 
     })
-    
   }
 
   packageExistsInCart(packageDetails: { packageName: any; }) {

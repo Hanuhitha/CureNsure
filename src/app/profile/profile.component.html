@@ -24,7 +24,9 @@
 </head>
 
 <body>
-  <div class="sidebar">
+
+  
+  <div class="sidebar" *ngIf="role === '1'">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
       <span class="logo_name">CureNsure</span>
@@ -49,12 +51,12 @@
           <span class="links_name">Appointment Summary</span>
         </a>
       </li>
-      <!-- <li>
-          <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li> -->
+      <li>
+        <a href="/view_appointment_patient">
+            <i class='bx bx-message'></i>
+            <span class="links_name">View Appointment</span>
+        </a>
+    </li>
       <li>
         <a href="/favorites">
           <i class='bx bx-heart'></i>
@@ -68,13 +70,76 @@
           </a>
         </li> -->
       <li class="log_out">
-        <button mat-raised-button
-                    class="long-button"
-                    (click)="logout()"
-            >Logout</button>
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>
+
+
+  <div class="sidebar" *ngIf="role === '2'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/doctor" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/view_appointment_doctor">
+          <i class='bx bx-message'></i>
+          <span class="links_name">View Appointments</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="role === '3'">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CureNsure</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/insurance_home" class="active">
+          <i class='bx bx-grid-alt'></i>
+
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Profile</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/favorites">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Favorites</span>
+        </a>
+      </li>
+     
+      <li class="log_out">
+        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
@@ -82,8 +147,8 @@
         <span class="dashboard">Profile</span>
       </div>
     </nav>
-    <div class="home-content" *ngIf="details.role_id === 2">
-      <p> DOCTOR</p>
+    <div class="home-content" *ngIf="role === '2'">
+    
       <div class="overview-boxes">
 
         <div class="box">
@@ -379,7 +444,7 @@
 
 
 
-    <div class="home-content" *ngIf="details.role_id === 3">
+    <div class="home-content" *ngIf="role === '3'">
       <div class="overview-boxes">
 
         <div class="box">
@@ -405,12 +470,13 @@
       </div>
     </div>
 
-    <div class="home-content" *ngIf="details.role_id === 1">
+    <div class="home-content" *ngIf="role === '1'">
       <div class="overview-boxes">
         <div class="box">
 
           <div class="right-side">
-            <div class="box-topic"><b>Name</b> - {{details?.user_title}} {{details?.user_first_name}} {{details?.user_last_name}}</div>
+            <div class="box-topic"><b>Name</b> - {{details?.user_title}} {{details?.user_first_name}}
+              {{details?.user_last_name}}</div>
             <br>
 
             <!-- <div class="text"><b>Hospital Name</b> - {{details?.hospital_name}}</div> -->

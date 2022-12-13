@@ -22,78 +22,153 @@
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">CureNsure</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="/home" class="active">
-          <i class='bx bx-grid-alt'></i>
 
-          <span class="links_name">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="/profile">
-          <i class='bx bx-box'></i>
-          <span class="links_name">Profile</span>
-        </a>
-      </li>
-      <li>
-        <a href="/bookappointment">
-          <i class='bx bx-user'></i>
-          <span class="links_name">Appointment Summary</span>
-        </a>
-      </li>
-      <li>
-        <a href="/view_appointment_patient">
-          <i class='bx bx-message'></i>
-          <span class="links_name">View Appointment</span>
-        </a>
-      </li>
-      <li>
-        <a href="/favorites">
-          <i class='bx bx-heart'></i>
-          <span class="links_name">Favorites</span>
-        </a>
-      </li>
-      <!-- <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li> -->
-      <li class="log_out">
-        <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
-                
-      </li>
-    </ul>
+  <!-- <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63901878b0d6371309d2fee0/1gjldv5gh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script> -->
+<div class="sidebar" *ngIf="role === '1'">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus'></i>
+    <span class="logo_name">CureNsure</span>
   </div>
-  <section class="home-section">
-    <nav>
-      <div class="sidebar-button">
-        <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
-      </div>
-      <div>
-        <div *ngIf="filterValue == 'Hospital'">
+  <ul class="nav-links">
+    <li>
+      <a href="/home" class="active">
+        <i class='bx bx-grid-alt'></i>
 
-          <div fxLayout="column" fxLayoutAlign="start stretch">
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="/profile">
+        <i class='bx bx-box'></i>
+        <span class="links_name">Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="/bookappointment">
+        <i class='bx bx-user'></i>
+        <span class="links_name">Appointment Summary</span>
+      </a>
+    </li>
+    <li>
+      <a href="/view_appointment_patient">
+        <i class='bx bx-message'></i>
+        <span class="links_name">View Appointment</span>
+      </a>
+    </li>
+    <li>
+      <a href="/favorites">
+        <i class='bx bx-heart'></i>
+        <span class="links_name">Favorites</span>
+      </a>
+    </li>
+    <!-- <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li> -->
+    <li class="log_out">
+      <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</div>
 
-            <mat-form-field appearance="outline" class="search-packages">
-              <mat-label>Search by speciality or hospital by filter</mat-label>
-              <input matInput placeholder="" [formControl]="primaryDiagnosisSearchCtrl" [matAutocomplete]="search">
-              <!-- <mat-icon matSuffix>add</mat-icon> -->
-            </mat-form-field>
-            <mat-autocomplete #search="matAutocomplete" (click)="getListDetails()">
-              <mat-option *ngFor="let result of hospitals" [value]="result" (click)="getvalue(result)">{{result}}
-              </mat-option>
-            </mat-autocomplete>
-            <!-- <mat-form-field appearance="outline" class="search-packages">
+
+<div class="sidebar" *ngIf="role === '2'">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus'></i>
+    <span class="logo_name">CureNsure</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="/doctor" class="active">
+        <i class='bx bx-grid-alt'></i>
+
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="/profile">
+        <i class='bx bx-box'></i>
+        <span class="links_name">Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="/view_appointment_doctor">
+        <i class='bx bx-message'></i>
+        <span class="links_name">View Appointments</span>
+      </a>
+    </li>
+    <li class="log_out">
+      <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</div>
+
+<div class="sidebar" *ngIf="role === '3'">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus'></i>
+    <span class="logo_name">CureNsure</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="/insurance_home" class="active">
+        <i class='bx bx-grid-alt'></i>
+
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="/profile">
+        <i class='bx bx-box'></i>
+        <span class="links_name">Profile</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/favorites">
+        <i class='bx bx-heart'></i>
+        <span class="links_name">Favorites</span>
+      </a>
+    </li>
+
+    <li class="log_out">
+      <button mat-raised-button class="long-button" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <nav>
+    <div class="sidebar-button">
+      <i class='bx bx-menu sidebarBtn'></i>
+      <span class="dashboard">Dashboard</span>
+    </div>
+    <div>
+      <div *ngIf="filterValue == 'Hospital'">
+
+        <div fxLayout="column" fxLayoutAlign="start stretch">
+
+          <mat-form-field appearance="outline" class="search-packages">
+            <mat-label>Search by speciality or hospital by filter</mat-label>
+            <input matInput placeholder="" [formControl]="primaryDiagnosisSearchCtrl" [matAutocomplete]="search">
+            <!-- <mat-icon matSuffix>add</mat-icon> -->
+          </mat-form-field>
+          <mat-autocomplete #search="matAutocomplete" (click)="getListDetails()">
+            <mat-option *ngFor="let result of hospitals" [value]="result" (click)="getvalue(result)">{{result}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-form-field appearance="outline" class="search-packages">
               <mat-label>Search by Package name or Contents of package</mat-label>
               <mat-icon matSuffix *ngIf="!primaryDiagnosisSearchCtrl.value">search</mat-icon>
               <input matInput placeholder="Ex: Speciality/Hospital" [formControl]="primaryDiagnosisSearchCtrl">
@@ -101,386 +176,395 @@
                 <mat-option *ngFor="let result of hospitals" [value]="result" (click)="getvalue(result)">{{result}}</mat-option>
             </mat-autocomplete>
           </mat-form-field> -->
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="profile-details">
+      <mat-form-field>
+        <mat-label>Search Filter</mat-label>
+        <mat-select [formControl]="filterType">
+          <mat-option *ngFor="let fil of filter" [value]="fil.value">
+            {{fil.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </nav>
+
+  <div *ngIf="searchdone">
+
+    <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="12px">
+      <section fxFlex="90">
+        <div class="box-search">
+
+          <div class="home-content">
+            <div class="overview-boxes">
+
+              <img class="patient-avatar"
+                src="{{'https://ui-avatars.com/api/?background=0116eb&color=fff&name=' + hospitalDetails?.user_first_name}}">
+
+              <!-- <p>img</p> -->
+              <div class="left-side">
+                <div class="text"><b>Name</b> - {{hospitalDetails?.user_first_name}}
+                  {{hospitalDetails?.user_last_name}}
+                </div>
+                <div class="text"><b>Hospital Name</b> - {{hospitalDetails?.hospital_name}}</div>
+                <div class="text"><b>Speciality</b> - {{hospitalDetails?.speciality}}</div>
+                <div class="text"><strong>Supports Covid</strong> - {{hospitalDetails?.supports_covid}}</div>
+                <div class="text"><b>Address</b> - {{hospitalDetails?.user_address}}</div>
+                <div class="text"><b>Email</b> - {{hospitalDetails?.user_email}}</div>
+                <div class="text"><b>Gender</b> - {{hospitalDetails?.user_gender}}</div>
+                <br>
+                <button mat-raised-button [disabled]="book" class="long-button" (click)="bookAppointment()">BOOK
+                  APPOINTMENT</button>
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <p> .</p>
+  <p> .</p>
+
+  <div *ngIf="book">
+
+    <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your reason</ng-template>
+          <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Reason to book appointment</mat-label>
+            <input matInput placeholder="urgent/ general checkup" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-flat-button color="primary" matTooltip="Next" matStepperNext>Next</button>
+            <br><br><br>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" label="Fill out your mode">
+
+
+        <form [formGroup]="secondFormGroup">
+          <section class="example-section" [formGroup]="ques">
+            <h4>Questionarie:</h4>
+            <p><mat-checkbox formControlName="q1">In the past 2 weeks have you been in close contact with anyone who tested positive for covid?</mat-checkbox></p>
+            <p><mat-checkbox formControlName="q2">Do you have/had any covid like symptoms(coughing,sneezing,running nose,sore throat)?</mat-checkbox></p>
+            <p><mat-checkbox formControlName="q3">Have you had a fever recently?</mat-checkbox></p>
+            <p><mat-checkbox formControlName="q4">Have you taken less than 2 vaccines?</mat-checkbox></p>
+            <p><mat-checkbox formControlName="q5">Do you or a loved one have a history of being immunocomprised?</mat-checkbox></p>
+          </section>
+          <div>
+            <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
+            <br>
+            <button mat-flat-button color="primary" matTooltip="Next" matStepperNext>Next</button>
+          </div>
+        </form>
+
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" label="Fill out your mode">
+        <form [formGroup]="secondFormGroup">
+
+
+
+          <div fxFlex="" fxLayout="column" class="slots" fxLayoutGap="20px">
+            <div class="mat-title">Select A Slot</div>
+            <div fxFlex fxLayout="column" class="pad-8">
+              <div fxLayout="row" fxLayoutAlign="start start">
+                <div fxLayout="column" fxLayoutGap="32px" fxLayoutAlign="start start">
+                  <mat-tab-group>
+                    <mat-tab label="SLOTS">
+                      <ng-template matTabContent>
+                        <div class="tab-content">
+                          <div fxLayout="row wrap" fxLayoutGap="8px">
+                            <button mat-stroked-button class="time-interval" *ngFor="let app of updatedAppointments"
+                              (click)="selectedTime(app)">
+                              {{app.date}} - {{app.time}} {{app.ampm}}&nbsp;
+                            </button>
+                            <!-- <button fxFlex="40" mat-stroked-button class="time-interval">No
+                          Slots Available</button>
+                           -->
+                          </div>
+                        </div>
+                      </ng-template>
+                    </mat-tab>
+                  </mat-tab-group>
+                </div>
+                <!-- <div *ngIf="hasNoIntervals" class="noSlots">
+              <div class="mat-headline">No Slots Available</div>
+              <div>&nbsp;</div>
+            </div> -->
+              </div>
+            </div>
+
+            <div fxLayoutAlign="center center">
+              <div class="mat-subheading appointments-date" fxLayout="row" fxLayoutGap="20px" *ngIf="timeSelected">
+                <!-- Date : {{selectedDate}} -->
+                <div class="mat-subheading-1">Selected Slot - {{selectedApp.date}} - {{selectedApp.time}}
+                  {{selectedApp.ampm}}</div>
+              </div><br>
+              <div>
+                <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
+                <br>
+                <button fxFlex="60" *ngIf="timeSelected" mat-flat-button color="primary" matTooltip="Next"
+                  matStepperNext color="primary">Confirm Slot</button>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Summary</ng-template>
+        <p>You can check you summary here</p>
+
+        <!-- <br><br><br><br><br><br><br><br> -->
+        <!-- <mat-progress-bar fxFlex mode="indeterminate"></mat-progress-bar> -->
+        <div fxFlex fxLayoutGap="16px">
+
+
+          <div fxLayout="column" fxLayoutGap="16px">
+
+            <!-- <app-casesheet-info [patientId]="patient.sub" [casesheetId]="casesheetId"></app-casesheet-info> -->
+
+
+            <section fxLayoutAlign="start center" fxLayoutGap="16px">
+              <div class="round-icon"><span class="material-icons">
+                  queue
+                </span></div>
+              <div>
+                <h2 class="mat-headline mb-0">Appointment</h2>
+                <span class="mat-caption text-light">Summary</span>
+              </div>
+
+              <div fxFlex fxLayoutAlign="end start">
+                <!-- <button mat-icon-button color="accent" matTooltip="Guidelines"></button> -->
+                <div> <button mat-flat-button color="accent" class="terms" (click)="guidelines()"
+                    matTooltip="Terms and Conditions"> T&C
+                  </button></div>
+              </div>
+            </section>
+
+            <div fxLayout="column" fxLayoutGap="8px" class="card">
+              <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge purple-clr">
+                  <mat-icon>airline_seat_individual_suite</mat-icon>
+                </span> Patient Details</div>
+              <section class="ml-46">
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="mat-body-1 text-light">Name: Hanuhitha Dondapati</div>
+                  <!-- <div class="mat-body-1">{{((personalInfo.firstName | titlecase) + " " + (personalInfo.lastName || ""))}}</div> -->
+                  <!-- <div class="mat-body-1">{{((patient.firstName || "" ) + " " + (patient.lastName || ""))}}</div> -->
+                </div>
+
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="mat-body-1 text-light">Email Id: hanuhitha.99@gmail.com</div>
+                  <!-- <div class="mat-body-1">{{patient.email}}</div> -->
+
+                </div>
+              </section>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="8px" class="card">
+              <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge blue-clr">
+                  <mat-icon>medical_services</mat-icon>
+                </span> Doctor Details</div>
+              <section class="ml-46">
+                <div fxLayout.lt-sm="column" fxLayoutGap="8px">
+                  <!-- <div class="mat-subheading-1">{{doctor.fullName}}</div> -->
+                  <!-- <div class="text-light mat-body-1">{{doctor.specialities}} | {{doctor.qualification}}</div> -->
+                </div>
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="text-light mat-body-1">Registration Id : 3f4acd25 </div>
+                  <!-- <div class="mat-body-1">{{doctor.registrationId | titlecase}}</div> -->
+                </div>
+
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="text-light mat-body-1">Appointment Id : {{selectedApp?.appointment_id }}</div>
+                  <!-- <div class="mat-body-1">{{doctor.registrationId | titlecase}}</div> -->
+                </div>
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="text-light mat-body-1">Gender : Male</div>
+                  <!-- <div class="mat-body-1">{{doctor.gender | titlecase}}</div> -->
+                </div>
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="text-light mat-body-1">Appointment Date : {{selectedApp?.date}}</div>
+                  <!-- <div class="mat-body-1">{{doctor.gender | titlecase}}</div>
+          </div>
+
+        <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
+          <div class="text-light mat-body-1">Appointment time : {{selectedApp?.time}} {{selectedApp?.ampm}}</div>
+           <div class="mat-body-1">{{doctor.gender | titlecase}}</div> -->
+                </div>
+                <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
+                  <div class="text-light mat-body-1">Short bio : I am a Cardiologist. I have a experience of 10yrs
+                  </div>
+                  <!-- <div class="mat-body-1" >{{doctor.shortBio}}</div> -->
+                </div>
+              </section>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="8px" class="card">
+              <div fxLayout="column" fxLayoutGap="8px">
+                <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge red-clr">
+                    <mat-icon>watch_later</mat-icon>
+                  </span> Scheduled Appointment</div>
+                <!-- <div class="mat-subheading-1 ml-46">{{scheduleAt | epochToCalendar}}</div> -->
+              </div>
+              <div fxLayout="column" class="ml-46" fxLayoutGap="8px">
+                <div class="mat-subheading-1">Your appointment time will be based on doctor's availability</div>
+              </div>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="8px" class="card">
+              <div fxLayout="column" fxLayoutGap="8px">
+
+                <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge green-clr">
+                    <mat-icon>videocam</mat-icon>
+                  </span> Appoinment Mode</div>
+                <div class="text-light mat-body-1">Video call</div>
+                <!-- <div class="mat-subheading-1 ml-46">{{communicationMode}}</div> -->
+              </div>
+              <!-- <ng-template #defaultMode fxLayoutGap="8px" >
+        <div fxLayoutGap="8px">
+          <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge blue-clr" >
+            <mat-icon>videocam</mat-icon>
+          </span> Appoinment Mode</div>
+          <div class="mat-subheading-1 ml-46">Video</div>
+        </div>
+      </ng-template> -->
+            </div>
+
+
+            <div fxLayout="column" class="personal-info" fxLayoutGap="16px">
+              <!-- <div class="mat-title section-title">Casesheet Details</div> -->
+              <!-- <app-casesheet-info [appointmentDetails]="appointment"></app-casesheet-info> -->
+            </div>
+
+
+
+            <button mat-raised-button color="primary" matTooltip="Save" (click)="payment()">Book Appoinment and Make
+              Payment</button>
+            <!-- <button fxFlex="60" *ngIf="timeSelected" mat-flat-button color="primary" matTooltip="Next" matStepperNext color="primary"
+        (click)="payment()">Make payment</button>
+       -->
           </div>
 
         </div>
 
+        <br>
+        <div>
+          <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
+          <br>
 
-      </div>
-      <div class="profile-details">
-        <mat-form-field>
-          <mat-label>Search Filter</mat-label>
-          <mat-select [formControl]="filterType">
-            <mat-option *ngFor="let fil of filter" [value]="fil.value">
-              {{fil.value}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-      </div>
-    </nav>
-
-    <div *ngIf="searchdone">
-
-      <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="12px">
-        <section fxFlex="90">
-          <div class="box-search">
-
-            <div class="home-content">
-              <div class="overview-boxes">
-
-                <img class="patient-avatar"
-                  src="{{'https://ui-avatars.com/api/?background=0116eb&color=fff&name=' + hospitalDetails?.user_first_name}}">
-
-                <!-- <p>img</p> -->
-                <div class="left-side">
-                  <div class="text"><b>Name</b> - {{hospitalDetails?.user_first_name}}
-                    {{hospitalDetails?.user_last_name}}
-                  </div>
-                  <div class="text"><b>Hospital Name</b> - {{hospitalDetails?.hospital_name}}</div>
-                  <div class="text"><b>Speciality</b> - {{hospitalDetails?.speciality}}</div>
-                  <div class="text"><strong>Supports Covid</strong> - {{hospitalDetails?.supports_covid}}</div>
-                  <div class="text"><b>Address</b> - {{hospitalDetails?.user_address}}</div>
-                  <div class="text"><b>Email</b> - {{hospitalDetails?.user_email}}</div>
-                  <div class="text"><b>Gender</b> - {{hospitalDetails?.user_gender}}</div>
-                  <br>
-                  <button mat-raised-button [disabled]="book" class="long-button" (click)="bookAppointment()">BOOK
-                    APPOINTMENT</button>
-                </div>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
 
 
-              </div>
+  </div>
 
-            </div>
-
-          </div>
-        </section>
-
-      </div>
-    </div>
+  <div *ngIf="!showcurrent">
     <p> .</p>
     <p> .</p>
-
-    <div *ngIf="book">
-
-      <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button> -->
-      <mat-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your reason</ng-template>
-            <br>
-
-            <mat-form-field appearance="fill">
-              <mat-label>Reason to book appointment</mat-label>
-              <input matInput placeholder="urgent/ general checkup" formControlName="firstCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-flat-button color="primary" matTooltip="Next" matStepperNext>Next</button>
-              <br><br><br>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" label="Fill out your mode">
-
-
-          <form [formGroup]="secondFormGroup">
-          <p> check covid list</p>
-          <!-- [disabled]="disable" -->
-            <div>
-              <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
-              <br>
-              <button mat-flat-button color="primary" matTooltip="Next" matStepperNext>Next</button>
-            </div>
-          </form>
-
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" label="Fill out your mode">
-          <form [formGroup]="secondFormGroup">
-
-
-
-            <div fxFlex="" fxLayout="column" class="slots" fxLayoutGap="20px">
-              <div class="mat-title">Select A Slot</div>
-              <div fxFlex fxLayout="column" class="pad-8">
-                <div fxLayout="row" fxLayoutAlign="start start">
-                  <div fxLayout="column" fxLayoutGap="32px" fxLayoutAlign="start start">
-                    <mat-tab-group>
-                      <mat-tab label="SLOTS">
-                        <ng-template matTabContent>
-                          <div class="tab-content">
-                            <div fxLayout="row wrap" fxLayoutGap="8px">
-                              <button mat-stroked-button class="time-interval" *ngFor="let app of updatedAppointments"
-                                (click)="selectedTime(app)">
-                                {{app.date}} - {{app.time}} {{app.ampm}}&nbsp;
-                              </button>
-                              <!-- <button fxFlex="40" mat-stroked-button class="time-interval">No
-                            Slots Available</button>
-                             -->
-                            </div>
-                          </div>
-                        </ng-template>
-                      </mat-tab>
-                    </mat-tab-group>
-                  </div>
-                  <!-- <div *ngIf="hasNoIntervals" class="noSlots">
-                <div class="mat-headline">No Slots Available</div>
-                <div>&nbsp;</div>
-              </div> -->
-                </div>
-              </div>
-
-              <div fxLayoutAlign="center center">
-                <div class="mat-subheading appointments-date" fxLayout="row" fxLayoutGap="20px" *ngIf="timeSelected">
-                  <!-- Date : {{selectedDate}} -->
+  </div>
+  
+  
+  <div *ngIf="showcurrent">
+    <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="100px">
+  
+      <section fxFlex="80">
+        <div class="home-content">
+          <div class="overview-boxes">
+  
+            <div class="box" fxFlex="250">
+              <div class="right-side"><br><br><br>
+                <div class="box-topic"><b>Latest booked appointment</b></div>
+                <br>
+                <!-- <div class="bom-topic"> -->
+                  <!-- <mat-icon>star</mat-icon>  -->
+                  <div class="mat-subheading-1">Appointment id  - {{selectedApp?.appointment_id }}</div>
+                  <div class="mat-subheading-1">Doctor Name - Oleg</div>
                   <div class="mat-subheading-1">Selected Slot - {{selectedApp.date}} - {{selectedApp.time}}
                     {{selectedApp.ampm}}</div>
-                </div><br>
-                <div>
-                  <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
-                  <br>
-                  <button fxFlex="60" *ngIf="timeSelected" mat-flat-button color="primary" matTooltip="Next"
-                    matStepperNext color="primary">Confirm Slot</button>
-                </div>
+                <!-- </div> -->
+                <br>
+  
+                <br><br><br>
+  
               </div>
+  
             </div>
-
-
-          </form>
-
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Summary</ng-template>
-          <p>You can check you summary here</p>
-
-          <!-- <br><br><br><br><br><br><br><br> -->
-          <!-- <mat-progress-bar fxFlex mode="indeterminate"></mat-progress-bar> -->
-          <div fxFlex fxLayoutGap="16px">
-
-
-            <div fxLayout="column" fxLayoutGap="16px">
-
-              <!-- <app-casesheet-info [patientId]="patient.sub" [casesheetId]="casesheetId"></app-casesheet-info> -->
-
-
-              <section fxLayoutAlign="start center" fxLayoutGap="16px">
-                <div class="round-icon"><span class="material-icons">
-                    queue
-                  </span></div>
-                <div>
-                  <h2 class="mat-headline mb-0">Appointment</h2>
-                  <span class="mat-caption text-light">Summary</span>
-                </div>
-
-                <div fxFlex fxLayoutAlign="end start">
-                  <!-- <button mat-icon-button color="accent" matTooltip="Guidelines"></button> -->
-                  <div> <button mat-flat-button color="accent" class="terms" (click)="guidelines()"
-                      matTooltip="Terms and Conditions"> T&C
-                    </button></div>
-                </div>
-              </section>
-
-              <div fxLayout="column" fxLayoutGap="8px" class="card">
-                <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge purple-clr">
-                    <mat-icon>airline_seat_individual_suite</mat-icon>
-                  </span> Patient Details</div>
-                <section class="ml-46">
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="mat-body-1 text-light">Name: Hanuhitha Dondapati</div>
-                    <!-- <div class="mat-body-1">{{((personalInfo.firstName | titlecase) + " " + (personalInfo.lastName || ""))}}</div> -->
-                    <!-- <div class="mat-body-1">{{((patient.firstName || "" ) + " " + (patient.lastName || ""))}}</div> -->
-                  </div>
-
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="mat-body-1 text-light">Email Id: hanuhitha.99@gmail.com</div>
-                    <!-- <div class="mat-body-1">{{patient.email}}</div> -->
-
-                  </div>
-                </section>
-              </div>
-
-              <div fxLayout="column" fxLayoutGap="8px" class="card">
-                <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge blue-clr">
-                    <mat-icon>medical_services</mat-icon>
-                  </span> Doctor Details</div>
-                <section class="ml-46">
-                  <div fxLayout.lt-sm="column" fxLayoutGap="8px">
-                    <!-- <div class="mat-subheading-1">{{doctor.fullName}}</div> -->
-                    <!-- <div class="text-light mat-body-1">{{doctor.specialities}} | {{doctor.qualification}}</div> -->
-                  </div>
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="text-light mat-body-1">Registration Id : 3f4acd25 </div>
-                    <!-- <div class="mat-body-1">{{doctor.registrationId | titlecase}}</div> -->
-                  </div>
-
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="text-light mat-body-1">Appointment Id : {{selectedApp?.appointment_id }}</div>
-                    <!-- <div class="mat-body-1">{{doctor.registrationId | titlecase}}</div> -->
-                  </div>
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="text-light mat-body-1">Gender : Male</div>
-                    <!-- <div class="mat-body-1">{{doctor.gender | titlecase}}</div> -->
-                  </div>
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="text-light mat-body-1">Appointment Date : {{selectedApp?.date}}</div>
-                    <!-- <div class="mat-body-1">{{doctor.gender | titlecase}}</div>
-            </div>
-
-          <div fxLayout.lt-sm="column"  fxLayout="row"  fxLayoutGap="8px">
-            <div class="text-light mat-body-1">Appointment time : {{selectedApp?.time}} {{selectedApp?.ampm}}</div>
-             <div class="mat-body-1">{{doctor.gender | titlecase}}</div> -->
-                  </div>
-                  <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="8px">
-                    <div class="text-light mat-body-1">Short bio : I am a Cardiologist. I have a experience of 10yrs
-                    </div>
-                    <!-- <div class="mat-body-1" >{{doctor.shortBio}}</div> -->
-                  </div>
-                </section>
-              </div>
-
-              <div fxLayout="column" fxLayoutGap="8px" class="card">
-                <div fxLayout="column" fxLayoutGap="8px">
-                  <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge red-clr">
-                      <mat-icon>watch_later</mat-icon>
-                    </span> Scheduled Appointment</div>
-                  <!-- <div class="mat-subheading-1 ml-46">{{scheduleAt | epochToCalendar}}</div> -->
-                </div>
-                <div fxLayout="column" class="ml-46" fxLayoutGap="8px">
-                  <div class="mat-subheading-1">Your appointment time will be based on doctor's availability</div>
-                </div>
-              </div>
-
-              <div fxLayout="column" fxLayoutGap="8px" class="card">
-                <div fxLayout="column" fxLayoutGap="8px">
-
-                  <div class="mat-body-2" fxLayoutGap="16px"> <span class="mini-badge green-clr">
-                      <mat-icon>videocam</mat-icon>
-                    </span> Appoinment Mode</div>
-                  <div class="text-light mat-body-1">Video call</div>
-                  <!-- <div class="mat-subheading-1 ml-46">{{communicationMode}}</div> -->
-                </div>
-                <!-- <ng-template #defaultMode fxLayoutGap="8px" >
-          <div fxLayoutGap="8px">
-            <div class="mat-body-2" fxLayoutGap="16px" > <span class="mini-badge blue-clr" >
-              <mat-icon>videocam</mat-icon>
-            </span> Appoinment Mode</div>
-            <div class="mat-subheading-1 ml-46">Video</div>
           </div>
-        </ng-template> -->
-              </div>
-
-
-              <div fxLayout="column" class="personal-info" fxLayoutGap="16px">
-                <!-- <div class="mat-title section-title">Casesheet Details</div> -->
-                <!-- <app-casesheet-info [appointmentDetails]="appointment"></app-casesheet-info> -->
-              </div>
-
-
-
-              <button mat-raised-button color="primary" matTooltip="Save" (click)="payment()">Book Appoinment and Make
-                Payment</button>
-              <!-- <button fxFlex="60" *ngIf="timeSelected" mat-flat-button color="primary" matTooltip="Next" matStepperNext color="primary"
-          (click)="payment()">Make payment</button>
-         -->
-            </div>
-
-          </div>
-
-          <br>
-          <div>
-            <button mat-stroked-button color="primary" matTooltip="Back" matStepperPrevious>Back</button>
-            <br>
-
-            <button mat-button (click)="stepper.reset()">Reset</button>
-          </div>
-        </mat-step>
-      </mat-stepper>
-
-
+        </div>
+      </section>
     </div>
+  </div>
 
-    <div *ngIf="!showcurrent">
-      <p> .</p>
-      <p> .</p>
-    </div>
-    
-    
-    <div *ngIf="showcurrent">
-      <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="3px">
-    
-        <section fxFlex="80">
-          <div class="home-content">
-            <div class="overview-boxes">
-    
-              <div class="box">
-                <div class="right-side"><br><br><br>
-                  <div class="box-topic"><b>Latest booked appointment</b></div>
-                  <br>
-                  <!-- <div class="bom-topic"> -->
-                    <!-- <mat-icon>star</mat-icon>  -->
-                    <div class="mat-subheading-1">Appointment id  - {{selectedApp?.appointment_id }}</div>
-                    <div class="mat-subheading-1">Doctor Name - Oleg</div>
-                    <div class="mat-subheading-1">Selected Slot - {{selectedApp.date}} - {{selectedApp.time}}
-                      {{selectedApp.ampm}}</div>
-                  <!-- </div> -->
-                  <br>
-    
-                  <br><br><br>
-    
-                </div>
-    
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <div>
-      <div class="box-topic"><b>Upcoming patient appointments</b></div> <br>
-      <div *ngIf="upcomingappointment$ | async as viewUpcomingPatientAppointment">
+    <div class="home-content">
+      <div class="overview-boxes">
+      <!-- <div class="box"><b>Upcoming patient appointments</b></div> <br><br><br> -->
+      <div *ngIf="upcomingappointment$ | async as viewUpcomingPatientAppointment" class="box" fxFlex="100">
+        <div class="right-side">
+          <div class="box-topic" fxLayoutAlign="center center"><strong>  Upcoming patient appointments</strong></div><br>
         <table mat-table [dataSource]="viewUpcomingPatientAppointment" matSort class="mat-elevation-z0">
-          <ng-container matColumnDef="DoctorUserid">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
-            <td mat-cell data-label="Date" *matCellDef="let element">{{element.doc_user_id}}</td>
+          <ng-container matColumnDef="DoctorUserid" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Appointment ID</th>
+            <td mat-cell data-label="doc_user_id" *matCellDef="let element">{{element.doc_user_id}}</td>
           </ng-container>
-          <ng-container matColumnDef="Note">
-            <th mat-header-cell *matHeaderCellDef>Title</th>
-            <td mat-cell data-label="Title" *matCellDef="let element">{{element.note}}</td>
+          <ng-container matColumnDef="Note" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Note</th>
+            <td mat-cell data-label="note" *matCellDef="let element">{{element.note}}</td>
           </ng-container>
-          <ng-container matColumnDef="PatientuserID">
-            <th mat-header-cell *matHeaderCellDef>View</th>
-            <td mat-cell data-label="View" *matCellDef="let element">
+          <!-- <ng-container matColumnDef="PatientuserID" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Patient ID</th>
+            <td mat-cell data-label="patient_user_id" *matCellDef="let element">
               {{element.patient_user_id}}
             </td>
-          </ng-container>
-          <ng-container matColumnDef="Time">
-            <th mat-header-cell *matHeaderCellDef>View</th>
-            <td mat-cell data-label="View" *matCellDef="let element">
+          </ng-container> -->
+          <ng-container matColumnDef="Time" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Time am/pm</th>
+            <td mat-cell data-label="time" *matCellDef="let element">
               {{element.time}}
             </td>
           </ng-container>
-          <ng-container matColumnDef="Type">
-            <th mat-header-cell *matHeaderCellDef>Delete</th>
-            <td mat-cell data-label="Delete" *matCellDef="let element">
+          <ng-container matColumnDef="Type" fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef>Type</th>
+            <td mat-cell data-label="type" *matCellDef="let element">
               {{element.type}}
             </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
-
-
-
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
-
-    <div *ngIf="role == 'user'">
-
-      <app-user></app-user>
     </div>
+  </div>
+
+  </div>
+
+  <div *ngIf="role == 'user'">
+
+    <app-user></app-user>
+  </div>
 
 
 
@@ -489,21 +573,21 @@
 
 
 
-    <div *ngIf="role == 'insurance'">
-      <app-insurance-home></app-insurance-home>
-    </div>
-    <div *ngIf="role == 'doctor'">
-      <app-doctor-home></app-doctor-home>
-    </div>
-    <!-- <app-list-doctor></app-list-doctor> -->
-    <div>
-      <app-user></app-user>
-    </div>
+  <div *ngIf="role == 'insurance'">
+    <app-insurance-home></app-insurance-home>
+  </div>
+  <div *ngIf="role == 'doctor'">
+    <app-doctor-home></app-doctor-home>
+  </div>
+  <!-- <app-list-doctor></app-list-doctor> -->
+  <div>
+    <app-user></app-user>
+  </div>
 
 
-    <!-- <app-doctor></app-doctor> -->
-    <!-- <app-fav-plans></app-fav-plans> -->
-  </section>
+  <!-- <app-doctor></app-doctor> -->
+  <!-- <app-fav-plans></app-fav-plans> -->
+</section>
 </body>
 
 </html>
